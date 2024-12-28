@@ -9,11 +9,13 @@
 /*   Updated: 2024/12/28 11:30:57 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 int	main(int argc, char **argv)
 {
 	t_stack *stack_a;
+	int		err;
 
-
+	if (invalid())
+	pusher(stack_a, argv[1]);
 }
