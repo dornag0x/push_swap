@@ -11,13 +11,13 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ps_lstadd_back(t_stack **lst, t_stack *new)
 {
-	t_list	*last;
+	t_stack	*last;
 
 	if (lst == NULL || new == NULL)
 		return ;
-	last = ft_lstlast(*lst);
+	last = ps_lstlast(*lst);
 	if (last != NULL)
 		last->next = new;
 	else

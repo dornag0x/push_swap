@@ -11,15 +11,13 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-void	err_handle(int case)
+void	err_handle(int type)
 {
-	if (!case)
+	if (!type)
 		return ;
-	if (case == 1)
+	if (type == 1)
 	{
 		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
-	if (case == 2)
-	if (case == 3)
 }

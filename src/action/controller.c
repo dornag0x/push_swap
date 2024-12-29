@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-int controller(int action)
+/*int controller(int action)
 {
 	if (!action)
 
-}
+}*/

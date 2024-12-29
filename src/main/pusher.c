@@ -11,7 +11,11 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-void	pusher(t_stack *stack, int *to_sort)
+void	pusher(t_stack **stack, int to_sort)
 {
+	t_stack *tmp;
 
+	tmp = ps_lstnew(to_sort);
+	ps_lstadd_back(stack, tmp);
+	free(tmp);
 }
