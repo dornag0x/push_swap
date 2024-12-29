@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfeufeu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/28 11:30:54 by hfeufeu           #+#    #+#             */
-/*   Updated: 2024/12/28 11:30:57 by hfeufeu          ###   ########.fr       */
+/*   Created: 2024/12/29 13:42:53 by hfeufeu           #+#    #+#             */
+/*   Updated: 2024/12/29 13:42:54 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-int	main(int argc, char **argv)
+void	err_handle(int case)
 {
-	t_stack *stack_a;
-	int		err;
-	int		i;
-
-	if (argc <= 2)
-		return 0;
-	if (invalid())
-		err_handle(1);
-	else 
+	if (!case)
+		return ;
+	if (case == 1)
 	{
-		while (argv[i])
-		{
-			pusher(stack_a, argv[i]);
-			i++;
-		}
+		write(2, "Error\n", 6);
+		exit(EXIT_FAILURE);
 	}
+	if (case == 2)
+	if (case == 3)
 }

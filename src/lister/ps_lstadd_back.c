@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ps_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfeufeu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/28 11:30:54 by hfeufeu           #+#    #+#             */
-/*   Updated: 2024/12/28 11:30:57 by hfeufeu          ###   ########.fr       */
+/*   Created: 2024/12/29 16:10:48 by hfeufeu           #+#    #+#             */
+/*   Updated: 2024/12/29 16:10:51 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-int	main(int argc, char **argv)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_stack *stack_a;
-	int		err;
-	int		i;
+	t_list	*last;
 
-	if (argc <= 2)
-		return 0;
-	if (invalid())
-		err_handle(1);
-	else 
-	{
-		while (argv[i])
-		{
-			pusher(stack_a, argv[i]);
-			i++;
-		}
-	}
+	if (lst == NULL || new == NULL)
+		return ;
+	last = ft_lstlast(*lst);
+	if (last != NULL)
+		last->next = new;
+	else
+		*lst = new;
 }

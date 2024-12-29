@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ps_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfeufeu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/28 11:30:54 by hfeufeu           #+#    #+#             */
-/*   Updated: 2024/12/28 11:30:57 by hfeufeu          ###   ########.fr       */
+/*   Created: 2024/12/29 16:11:34 by hfeufeu           #+#    #+#             */
+/*   Updated: 2024/12/29 16:11:36 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-int	main(int argc, char **argv)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_stack *stack_a;
-	int		err;
-	int		i;
+	t_list	*new_list;
+	t_list	*save;
+	void	*tmp;
 
-	if (argc <= 2)
-		return 0;
-	if (invalid())
-		err_handle(1);
-	else 
+	if (!lst || !f || !del)
+		return (NULL);
+	save = NULL;
+	while (lst != NULL)
 	{
-		while (argv[i])
+		tmp = f(lst->content);
+		new_list = ft_lstnew(tmp);
+		if (!new_list)
 		{
-			pusher(stack_a, argv[i]);
-			i++;
+			del(tmp);
+			ft_lstclear(&save, del);
+			return (NULL);
 		}
+		ft_lstadd_back(&save, new_list);
+		lst = lst->next;
 	}
+	return (save);
 }

@@ -14,6 +14,7 @@
 
 // Lib to delete before last push!!!
 # include <stdio.h>
+//
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -26,5 +27,13 @@ typedef struct s_stack
 	struct s_list	*next;
 }	t_stack;
 
-int main(int argc, char **argv);
+typedef struct s_data
+{
+	t_stack *num;
+	int	args_n;
+}	t_data;
+
+void	pusher(t_stack *stack, int *to_sort);
+void	err_handle(int case);
+int		main(int argc, char **argv);
 #endif
