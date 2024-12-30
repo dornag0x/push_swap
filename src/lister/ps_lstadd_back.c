@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-void	ps_lstadd_back(t_stack **lst, t_stack *new)
+void	ps_lstadd_back(t_listps **lst, t_listps *new)
 {
-	t_stack	*last;
+	t_listps	*last;
 
 	if (lst == NULL || new == NULL)
 		return ;

@@ -11,11 +11,11 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-t_stack	*ps_lstnew(int num)
+t_listps	*ps_lstnew(int num)
 {
-	t_stack	*node;
+	t_listps	*node;
 
-	node = malloc(sizeof(t_stack));
+	node = malloc(sizeof(t_listps));
 	if (!node)
 		return (NULL);
 	node->num = num;

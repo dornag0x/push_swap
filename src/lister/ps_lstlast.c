@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-t_stack	*ps_lstlast(t_stack *lst)
+t_listps	*ps_lstlast(t_listps *lst)
 {
 	if (!lst)
 		return (NULL);
