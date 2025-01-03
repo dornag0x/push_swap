@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ps_lstclear2nd.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfeufeu <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: hfeufeu <feufeuhugo@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/29 16:10:11 by hfeufeu           #+#    #+#             */
-/*   Updated: 2024/12/29 16:10:13 by hfeufeu          ###   ########.fr       */
+/*   Created: 2025/01/03 18:00:47 by hfeufeu           #+#    #+#             */
+/*   Updated: 2025/01/03 18:23:50 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-void	pushh(t_stack *stack_a, t_stack *stack_b)
+void	ps_lstclear2nd(t_listps	*lst)
 {
 	t_listps	*tmp;
-	t_listps	*head;
+	t_listps	*prv;
+	t_listps	*nxt;
 
-	if (!stack_b->data)
-		list_nurs(stack_b);
-	if (!stack_a->data)
-		list_nurs(stack_a);
-	tmp = *stack_a->data;
-	head = ps_lstnew(tmp->num);
-	ps_lstadd_front(stack_b->data, head);
+	tmp = lst->next;
+	prv = tmp;
+	nxt = tmp->next;
+	lst = lst->next;
+	while (lst->next)
+	{
+		prv = nxt;
+		lst = prv;
+	}
+	free(tmp);
 }

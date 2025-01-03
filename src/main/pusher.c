@@ -14,12 +14,9 @@
 void	pusher(t_stack *stack_a, int *nums)
 {
 	t_listps	*tmp;
-	//t_listps	**init;
 	int			i;
 
 	i = 0;
-	/*init = malloc(sizeof(t_listps*));
-	stack_a->data = init;*/
 	list_nurs(stack_a);
 	while (nums[i])
 	{

@@ -55,3 +55,20 @@ int	*super_atoi(char **numbers)
 	}
 	return (res);
 }
+
+// function to delete before push:
+void	print_test(t_stack *stack)
+{
+	t_listps	*tmp;
+	t_listps	**oui;
+
+	oui = malloc(sizeof(t_listps*));
+	oui = stack->data;
+	tmp = *oui;
+	printf("%d\n", tmp->num);
+	while (tmp->next)
+	{
+		tmp = tmp->next;
+		printf("%d\n", tmp->num);
+	}
+}
