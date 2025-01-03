@@ -18,6 +18,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdbool.h>
 # include "../lib/ft_printf/ft_printf.h"
 # include "../lib/libft/libft.h"
 
@@ -29,17 +30,23 @@ typedef struct s_listps
 
 typedef struct s_stack
 {
-	t_listps	*num;
+	t_listps	**data;
 	int			name;
 	int			args_n;
-	int			complete;
+	bool		complete;
 }	t_stack;
 
+void		list_nurs(t_stack *stack);
+void		ps_lstdelone(t_listps *lst, void (*del)(void*));
+void		swapp(t_stack *stack);
+void		pushh(t_stack *stack_a, t_stack *stack_b);
+void		ps_lstadd_front(t_listps **lst, t_listps *new);
+void		controller(t_stack *s_a, t_stack *s_b);
 int			*super_atoi(char **numbers);
 t_listps	*ps_lstnew(int num);
 void		ps_lstadd_back(t_listps **lst, t_listps *new);
 t_listps	*ps_lstlast(t_listps *lst);
-void		pusher(t_stack *stack_a, t_stack *stack_b, int *nums);
+void		pusher(t_stack *stack_a, int *nums);
 void		err_handle(int type);
 int			main(int argc, char **argv);
 #endif

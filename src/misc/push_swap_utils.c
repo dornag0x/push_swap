@@ -11,6 +11,16 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
+void	list_nurs(t_stack *stack)
+{
+	t_listps **tmp;
+
+	tmp = malloc(sizeof(t_listps*));
+	if (!tmp)
+		return ;
+	stack->data = tmp;
+}
+
 int tab_len(char **tab)
 {
 	int	i;

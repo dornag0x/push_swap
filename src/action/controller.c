@@ -11,8 +11,22 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-/*int controller(int action)
+void	controller(t_stack *s_a, t_stack *s_b)
 {
-	if (!action)
+	t_listps	*pivot;
+	t_listps	*tmp;
+	t_listps	*tmp1;
+	int			i;
+	bool		ver;
 
-}*/
+	i = 0;
+	ver = false;
+	swapp(s_a);
+	tmp = *s_a->data;
+	printf("b: %d\n", tmp->num);
+	/*while (tmp->next)
+	{
+		printf("b: %d\n", tmp->num);
+		tmp = tmp->next;
+	}*/
+}

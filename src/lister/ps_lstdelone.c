@@ -11,10 +11,9 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+void	ps_lstdelone(t_listps *lst, void (*del)(void*))
 {
 	if (!lst || !del)
 		return ;
-	del(lst->content);
 	free(lst);
 }

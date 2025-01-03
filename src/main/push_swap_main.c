@@ -15,14 +15,16 @@ int	main(int argc, char **argv)
 {
 	t_stack		*stack_a;
 	t_stack		*stack_b;
-	int			*num;
-	int			i;
+	t_listps	**tmp;
+	int			*n_argv;
 
 	if (argc <= 2)
-		return 0;
-	i = 1;
-	stack_a = NULL;
-	stack_b = NULL;
-	num = super_atoi(argv);
-	pusher(stack_a, stack_b, num);
+		return (0);
+	stack_a = malloc(sizeof(t_stack));
+	stack_b = malloc(sizeof(t_stack));
+	n_argv = super_atoi(argv);
+	pusher(stack_a, n_argv);
+	free(n_argv);
+	controller(stack_a, stack_b);
 }
+//ft_lstadd_back(env->stack_a, ft_lstnew(ft_atoi(argv)));

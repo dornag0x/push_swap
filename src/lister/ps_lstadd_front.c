@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ps_lstadd_front(t_listps **lst, t_listps *new)
 {
 	if (lst == NULL || new == NULL)
 		return ;
