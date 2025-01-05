@@ -24,6 +24,7 @@ SRC = $(wildcard ./src/main/*.c) \
 	  $(wildcard ./src/action/*.c) \
 	  $(wildcard ./src/lister/*.c) \
 	  $(wildcard ./src/parsing/*.c) \
+	  $(wildcard ./src/algo/*.c) \
 
 
 OBJ := $(SRC:%.c=$(OBJDIR)/%.o)

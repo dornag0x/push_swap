@@ -6,7 +6,7 @@
 /*   By: hfeufeu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 11:35:39 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/01/03 18:02:17 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/01/05 23:55:44 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -31,25 +31,38 @@ typedef struct s_listps
 typedef struct s_stack
 {
 	t_listps	**data;
-	int			name;
 	int			args_n;
 	bool		complete;
 }	t_stack;
 
-void		ps_lstclear2nd(t_listps	*lst);
-void		list_nurs(t_stack *stack);
-void		ps_lstdelone(t_listps *lst, void (*del)(void*));
-void		swapp(t_stack *stack);
-void		pushh(t_stack *stack_a, t_stack *stack_b);
-void		ps_lstadd_front(t_listps **lst, t_listps *new);
+// To delete before push:
+void		print_test(t_stack *stack);
+int			count_list(t_stack *stack);
+
+// Main:
 void		controller(t_stack *stack_a, t_stack *stack_b);
+void		pusher(t_stack *stack_a, t_stack *stack_b, int *nums);
+int			main(int argc, char **argv);
+
+// Utils:
+void		init_b(t_stack *stack_b, int value);
+void		list_nurs(t_stack *stack);
 int			*super_atoi(char **numbers);
+
+// Action:
+void		swapp(t_stack *stack);
+void		pushh(t_stack *stack_1, t_stack *stack_2);
+void		rotatee(t_stack *stack);
+void		rev_rotatee(t_stack *stack);
+
+// Lists:
+void		ps_lstclear_last(t_listps	*lst);
+void		ps_lstdelone(t_listps *lst, void (*del)(void*));
+void		ps_lstadd_front(t_listps **lst, t_listps *new);
 t_listps	*ps_lstnew(int num);
 void		ps_lstadd_back(t_listps **lst, t_listps *new);
 t_listps	*ps_lstlast(t_listps *lst);
-void		pusher(t_stack *stack_a, int *nums);
+
+// Errors handling:
 void		err_handle(int type);
-int			main(int argc, char **argv);
-// to delete before push:
-void		print_test(t_stack *stack);
 #endif

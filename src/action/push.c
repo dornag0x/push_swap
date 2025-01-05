@@ -11,16 +11,19 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-void	pushh(t_stack *stack_a, t_stack *stack_b)
+void	pushh(t_stack *stack_1, t_stack *stack_2)
 {
 	t_listps	*tmp;
 	t_listps	*head;
+	t_listps	*next;
 
-	if (!stack_b->data)
-		list_nurs(stack_b);
-	if (!stack_a->data)
-		list_nurs(stack_a);
-	tmp = *stack_a->data;
+	tmp = *stack_1->data;
 	head = ps_lstnew(tmp->num);
-	ps_lstadd_front(stack_b->data, head);
+	if (!stack_2->data)
+		init_b(stack_2, tmp->num);
+	else
+		ps_lstadd_front(stack_2->data, head);
+	next = tmp->next;
+	*stack_1->data = (*stack_1->data)->next;
+	free(tmp);
 }

@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-void	pusher(t_stack *stack_a, int *nums)
+void	pusher(t_stack *stack_a, t_stack *stack_b, int *nums)
 {
 	t_listps	*tmp;
 	int			i;

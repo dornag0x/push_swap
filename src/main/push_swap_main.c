@@ -24,8 +24,7 @@ int	main(int argc, char **argv)
 	stack_a = malloc(sizeof(t_stack));
 	stack_b = malloc(sizeof(t_stack));
 	n_argv = super_atoi(argv);
-	pusher(stack_a, n_argv);
+	pusher(stack_a, stack_b, n_argv);
 	free(n_argv);
 	controller(stack_a, stack_b);
 }
-//ft_lstadd_back(env->stack_a, ft_lstnew(ft_atoi(argv)));
