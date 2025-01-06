@@ -32,7 +32,7 @@ typedef struct s_stack
 {
 	t_listps	**data;
 	int			args_n;
-	bool		complete;
+	bool		check;
 }	t_stack;
 
 // To delete before push:
@@ -40,9 +40,12 @@ void		print_test(t_stack *stack);
 int			count_list(t_stack *stack);
 
 // Main:
-void		controller(t_stack *stack_a, t_stack *stack_b);
 void		pusher(t_stack *stack_a, t_stack *stack_b, int *nums);
 int			main(int argc, char **argv);
+
+// Algorithm:
+int			valid_data(t_listps	*data);
+char		*controller(t_stack *stack_a, t_stack *stack_b);
 
 // Utils:
 void		init_b(t_stack *stack_b, int value);

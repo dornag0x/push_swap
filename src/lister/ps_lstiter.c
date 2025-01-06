@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ps_lstiter(t_list *lst, void (*f)(void *))
 {
 	if (!f)
 		return ;
