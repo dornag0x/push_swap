@@ -30,18 +30,28 @@ void	iterlist(t_stack *stack_a, t_stack *stack_b)
 {
 	t_listps	*head;
 	t_listps	*pivot;
+	int			i;
 
 	head = *stack_a->data;
 	pivot = ps_lstlast(*stack_a->data);
+	i = 0;
 	while (head->next)
 	{
 		if (head->num > pivot->num)
 		{
 			while (*stack_a->data != head)
+			{
 				rotatee(stack_a);
+				i++;
+			}
 			pushh(stack_a, stack_b);
-			rev_rotatee(stack_a);
+			while (i > 0)
+			{
+				rev_rotatee(stack_a);
+				i--;
+			}
 			head = *stack_a->data;
+			pivot = ps_lstlast(*stack_a->data);
 		}
 		else
 			head = head->next;
