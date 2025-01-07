@@ -6,7 +6,7 @@
 /*   By: hfeufeu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 11:35:39 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/01/05 23:55:44 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/01/07 20:27:51 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -46,6 +46,8 @@ int			main(int argc, char **argv);
 // Algorithm:
 int			valid_data(t_listps	*data);
 char		*controller(t_stack *stack_a, t_stack *stack_b);
+void		alg_2(t_stack *stack);
+void		alg_3(t_stack *stack);
 
 // Utils:
 void		init_b(t_stack *stack_b, int value);
