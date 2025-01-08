@@ -6,7 +6,7 @@
 /*   By: hfeufeu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 16:10:04 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/01/07 21:41:47 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/01/08 01:13:06 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
@@ -26,28 +26,37 @@ int	valid_data(t_listps	*data)
 	return (1);
 }
 
-void	n_iterlist(t_stack *stack_a, t_stack *stack_b)
+void	int_sort(t_stack *stack)
 {
+	t_listps	**cpy;
 	t_listps	*head;
-	t_listps	*tail_a;
+	t_listps	*next;
+	t_listps	*print;
+	t_listps	*pivot;
+	t_listps	*tmp;
 
-	tail_a = ps_lstlast(*stack_a->data);
-	head = *stack_b->data;
-	while ((*stack_b->data)->next)
+	cpy = ps_lstcpy(stack);
+	head = *cpy;
+	pivot = *cpy;
+	next = (*cpy)->next;
+	while (!valid_data(*cpy))
 	{
-		if ((*stack_b->data)->num > tail_a->num)
+		if (next->num < head->num)
 		{
-			pushh(stack_b, stack_a);
-			rotatee(stack_a);
+			tmp->num = head->num;
+			head->num = next->num;
+			next->num = tmp->num;
+			head = pivot;
+			next = head->next;
 		}
-		else
-		{
-			rev_rotatee(stack_a);
-			pushh(stack_b, stack_a);
-			rotatee(stack_a);
-			rotatee(stack_a);
-		}
-		tail_a = ps_lstlast(*stack_a->data);
+		else 
+			head = head->next;
+	}
+	print = head;
+	while (print)
+	{
+		printf("%d\n", print->num);
+		print = print->next;
 	}
 }
 
@@ -69,38 +78,6 @@ void rad(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-void	iterlist(t_stack *stack_a, t_stack *stack_b)
-{
-	t_listps	*head;
-	t_listps	*pivot;
-	int			i;
-
-	head = *stack_a->data;
-	pivot = ps_lstlast(*stack_a->data);
-	i = 0;
-	while (head->next)
-	{
-		if (head->num > pivot->num)
-		{
-			while (*stack_a->data != head)
-			{
-				rotatee(stack_a);
-				i++;
-			}
-			pushh(stack_a, stack_b);
-			while (i > 0)
-			{
-				rev_rotatee(stack_a);
-				i--;
-			}
-			head = *stack_a->data;
-			pivot = ps_lstlast(*stack_a->data);
-		}
-		else
-			head = head->next;
-	}	
-}
-
 char	*controller(t_stack *stack_a, t_stack *stack_b)
 {
 	t_listps	*pivot;
@@ -115,11 +92,12 @@ char	*controller(t_stack *stack_a, t_stack *stack_b)
 		alg_2(stack_a);
 	if (count_list(stack_a) == 3)
 		alg_3(stack_a);
-	if (count_list(stack_a) == 4)
-		alg_4(stack_a);
+	//if (count_list(stack_a) == 4)
+	//	alg_4(stack_a);
 	//pivot = ps_lstlast(*stack_a->data);
 	//iterlist(stack_a, stack_b);
 	//n_iterlist(stack_a, stack_b);
+	int_sort(stack_a);
 	if (stack_a->data)
 	{
 		printf("stack A: \n");

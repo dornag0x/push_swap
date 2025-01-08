@@ -6,7 +6,7 @@
 /*   By: hfeufeu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 11:35:39 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/01/07 20:27:51 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/01/08 00:35:45 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -25,6 +25,7 @@
 typedef struct s_listps
 {
 	int				num;
+	int				index;
 	struct s_listps	*next;
 }	t_listps;
 
@@ -40,7 +41,7 @@ void		print_test(t_stack *stack);
 int			count_list(t_stack *stack);
 
 // Main:
-void		pusher(t_stack *stack_a, t_stack *stack_b, int *nums);
+void		pusher(t_stack *stack_a, int *nums);
 int			main(int argc, char **argv);
 
 // Algorithm:
@@ -53,6 +54,8 @@ void		alg_3(t_stack *stack);
 void		init_b(t_stack *stack_b, int value);
 void		list_nurs(t_stack *stack);
 int			*super_atoi(char **numbers);
+void		indexer(t_listps *stack);
+void		int_sort(t_stack *stack);
 
 // Action:
 void		swapp(t_stack *stack);
@@ -67,6 +70,7 @@ void		ps_lstadd_front(t_listps **lst, t_listps *new);
 t_listps	*ps_lstnew(int num);
 void		ps_lstadd_back(t_listps **lst, t_listps *new);
 t_listps	*ps_lstlast(t_listps *lst);
+t_listps	**ps_lstcpy(t_stack *stack);
 
 // Errors handling:
 void		err_handle(int type);

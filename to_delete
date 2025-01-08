@@ -3,15 +3,6 @@ https://www.geeksforgeeks.org/bitwise-operators-in-c-cpp/
 
 to-do:
 
-- Mettre un indices pour mes listes chaine (
-	typedef struct s_listps 
-	{
-		int			num;
-		int			indices;
-		t_listps	*next;
-	} t_listps;
-)
-
 - Transformer ma stack en indices [12, 51, 612, 64, 8] en [1, 2, 4, 3, 0]
 
 - Transformer ma stack en bit [1, 2, 4, 3, 0] en [01, 10, 100, 11, 00]

@@ -78,11 +78,11 @@ void	print_test(t_stack *stack)
 	oui = stack->data;
 	tmp = *oui;
 	//printf("len: %d\n", count_list(stack));
-	printf("%d\n", tmp->num);
+	printf("%d: %d\n", tmp->index, tmp->num);
 	while (tmp->next)
 	{
 		tmp = tmp->next;
-		printf("%d\n", tmp->num);
+		printf("%d: %d\n", tmp->index, tmp->num);
 	}
 }
 

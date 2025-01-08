@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pusher.c                                           :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfeufeu <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: hfeufeu <feufeuhugo@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/28 19:12:01 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/01/07 23:35:27 by hfeufeu          ###   ########.fr       */
+/*   Created: 2025/01/07 22:55:43 by hfeufeu           #+#    #+#             */
+/*   Updated: 2025/01/07 23:01:11 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-void	pusher(t_stack *stack_a, int *nums)
+void	indexer(t_listps *stack)
 {
-	t_listps	*tmp;
-	int			i;
+	int	i;
 
 	i = 0;
-	list_nurs(stack_a);
-	while (nums[i])
+	while (stack)
 	{
-		tmp = ps_lstnew(nums[i]);
-		if (!tmp)
-			return ;
-		ps_lstadd_back(stack_a->data, tmp);
+		stack->index = i;
+		stack = stack->next;
 		i++;
 	}
-	indexer(*stack_a->data);
 }

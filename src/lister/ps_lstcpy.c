@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pusher.c                                           :+:      :+:    :+:   */
+/*   ps_lstcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfeufeu <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: hfeufeu <feufeuhugo@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/28 19:12:01 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/01/07 23:35:27 by hfeufeu          ###   ########.fr       */
+/*   Created: 2025/01/07 23:20:22 by hfeufeu           #+#    #+#             */
+/*   Updated: 2025/01/08 01:13:07 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-void	pusher(t_stack *stack_a, int *nums)
+t_listps	**ps_lstcpy(t_stack *stack)
 {
+	t_listps	**cpy;
 	t_listps	*tmp;
-	int			i;
+	t_listps	*head;
+	t_listps	*print;
 
-	i = 0;
-	list_nurs(stack_a);
-	while (nums[i])
+	cpy = malloc(sizeof(t_listps*));
+	head = *stack->data;
+	while (head)
 	{
-		tmp = ps_lstnew(nums[i]);
-		if (!tmp)
-			return ;
-		ps_lstadd_back(stack_a->data, tmp);
-		i++;
+		tmp = ps_lstnew(head->num);
+		tmp->index = head->index;
+		ps_lstadd_back(cpy, tmp);
+		head = head->next;
 	}
-	indexer(*stack_a->data);
+	return (cpy);
 }
