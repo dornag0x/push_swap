@@ -39,6 +39,7 @@ typedef struct s_stack
 // To delete before push:
 void		print_test(t_stack *stack);
 int			count_list(t_stack *stack);
+void		print_testlst(t_listps **lst);
 
 // Main:
 void		pusher(t_stack *stack_a, int *nums);

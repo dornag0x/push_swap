@@ -86,6 +86,18 @@ void	print_test(t_stack *stack)
 	}
 }
 
+void	print_testlst(t_listps **lst)
+{
+	t_listps	*print;
+
+	print = *lst;
+	while(print)
+	{
+		printf("%d\n", print->num);
+		print = print->next;
+	}
+}
+
 int count_list(t_stack *stack)
 {
 	t_listps *tmp;
