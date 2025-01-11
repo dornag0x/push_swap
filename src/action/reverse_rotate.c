@@ -17,7 +17,7 @@ void	rev_rotatee(t_stack *stack)
 	t_listps	*last;
 
 	last = ps_lstlast(*stack->data);
-	tmp = ps_lstnew(last->num);
+	tmp = ps_lstnew(last->num, last->index);
 	ps_lstadd_front(stack->data, tmp);
 	ps_lstclear_last(*stack->data);
 }

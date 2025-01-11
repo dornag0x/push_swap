@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-t_listps	*ps_lstnew(int num)
+t_listps	*ps_lstnew(int num, int index)
 {
 	t_listps	*node;
 
@@ -19,6 +19,7 @@ t_listps	*ps_lstnew(int num)
 	if (!node)
 		return (NULL);
 	node->num = num;
+	node->index = index;
 	node->next = NULL;
 	return (node);
 }

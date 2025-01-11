@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-t_listps	**ps_lstcpy(t_stack *stack)
+t_listps	**ps_lstcpy(t_listps *stack)
 {
 	t_listps	**cpy;
 	t_listps	*tmp;
@@ -19,11 +19,10 @@ t_listps	**ps_lstcpy(t_stack *stack)
 	t_listps	*print;
 
 	cpy = malloc(sizeof(t_listps*));
-	head = *stack->data;
+	head = stack;
 	while (head)
 	{
-		tmp = ps_lstnew(head->num);
-		tmp->index = head->index;
+		tmp = ps_lstnew(head->num, head->index);
 		ps_lstadd_back(cpy, tmp);
 		head = head->next;
 	}

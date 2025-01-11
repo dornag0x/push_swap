@@ -17,7 +17,7 @@ void	rotatee(t_stack *stack)
 	t_listps	*head;
 
 	head = *stack->data;
-	tmp = ps_lstnew((*stack->data)->num);
+	tmp = ps_lstnew((*stack->data)->num, (*stack->data)->index);
 	*stack->data = (*stack->data)->next;
 	ps_lstadd_back(stack->data, tmp);
 	free(head);

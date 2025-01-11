@@ -33,7 +33,7 @@ void	pusher(t_stack *stack_a, int *nums)
 	list_nurs(stack_a);
 	while (nums[i])
 	{
-		tmp = ps_lstnew(nums[i]);
+		tmp = ps_lstnew(nums[i], 0);
 		if (!tmp)
 			return ;
 		ps_lstadd_back(stack_a->data, tmp);

@@ -22,7 +22,7 @@ void	swapp(t_stack *stack)
 	head = *stack->data;
 	head = head->next;
 	tmp = head->next;
-	pivot = ps_lstnew(head->num);
+	pivot = ps_lstnew(head->num, head->index);
 	ps_lstadd_front(stack->data, pivot);
 	(*stack->data)->next->next = tmp;
 	free(head);

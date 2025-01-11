@@ -91,7 +91,7 @@ t_listps *num_sort(t_listps *stack)
 	return (stack);
 }
 
-t_listps	**int_sort(t_stack *stack)
+t_listps	**int_sort(t_listps *stack)
 {
 	t_listps	**cpy;
 	t_listps	*head;

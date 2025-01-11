@@ -11,20 +11,27 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
+void	revert(t_stack *stack_a, t_stack *stack_b)
+{
+	while ((*stack_b->data)->next)
+		pushh(stack_b, stack_a);
+	pushh(stack_b, stack_a);
+}
+
 void	big_algo(t_stack *stack_a, t_stack *stack_b, t_listps *cpy)
 {
 	static int	bit = 1;
 	t_listps	*pivot;
 
-	if (!(bit == 1))
-		bit += bit;
 	while (cpy)
 	{
+		printf("%d\n", bit & cpy->num);
 		if (!(bit & cpy->num))
 			pushh(stack_a, stack_b);
-		rotatee(stack_a);
+		else
+			rotatee(stack_a);
 		cpy = cpy->next;
 	}
-	while ((*stack_b->data))
-		pushh(stack_b, stack_a);
+	revert(stack_a, stack_b);
+	bit += bit;
 }

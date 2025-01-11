@@ -21,14 +21,15 @@ void	list_nurs(t_stack *stack)
 	stack->data = tmp;
 }
 
-void	init_b(t_stack *stack_b, int value)
+void	init_b(t_stack *stack_b, int value, int index)
 {
 	t_listps	*def;
 
 	list_nurs(stack_b);
 	if (!stack_b)
 		return ;
-	def = ps_lstnew(value);
+	def = ps_lstnew(value, index);
+	def->index = index;
 	ps_lstadd_back(stack_b->data, def);
 }
 
