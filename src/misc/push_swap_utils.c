@@ -93,7 +93,7 @@ void	print_testlst(t_listps **lst)
 	print = *lst;
 	while(print)
 	{
-		printf("%d\n", print->num);
+		printf("%d: %d\n", print->index, print->num);
 		print = print->next;
 	}
 }

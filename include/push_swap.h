@@ -6,7 +6,7 @@
 /*   By: hfeufeu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 11:35:39 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/01/08 00:35:45 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/01/11 10:40:27 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -48,6 +48,7 @@ int			main(int argc, char **argv);
 // Algorithm:
 int			valid_data(t_listps	*data);
 char		*controller(t_stack *stack_a, t_stack *stack_b);
+void		big_algo(t_stack *stack_a, t_stack *stack_b, t_listps *cpy);
 void		alg_2(t_stack *stack);
 void		alg_3(t_stack *stack);
 
@@ -56,7 +57,7 @@ void		init_b(t_stack *stack_b, int value);
 void		list_nurs(t_stack *stack);
 int			*super_atoi(char **numbers);
 void		indexer(t_listps *stack);
-void		int_sort(t_stack *stack);
+t_listps	**int_sort(t_stack *stack);
 
 // Action:
 void		swapp(t_stack *stack);
@@ -72,6 +73,7 @@ t_listps	*ps_lstnew(int num);
 void		ps_lstadd_back(t_listps **lst, t_listps *new);
 t_listps	*ps_lstlast(t_listps *lst);
 t_listps	**ps_lstcpy(t_stack *stack);
+void		ps_lstclear(t_listps **lst, void (*del)(void*));
 
 // Errors handling:
 void		err_handle(int type);

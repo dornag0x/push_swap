@@ -36,6 +36,7 @@ void	alg_3(t_stack *stack)
 		swapp(stack);
 	}
 }
+
 /*
 void	alg_4(t_stack stack)
 {

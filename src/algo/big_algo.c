@@ -1,43 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   big_algo.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfeufeu <feufeuhugo@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 22:55:43 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/01/07 23:01:11 by hfeufeu          ###   ########.fr       */
+/*   Created: 2025/01/11 09:50:27 by hfeufeu           #+#    #+#             */
+/*   Updated: 2025/01/11 10:56:15 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-void	indexer(t_listps *stack)
+void	big_algo(t_stack *stack_a, t_stack *stack_b, t_listps *cpy)
 {
-	int	i;
+	static int	bit = 1;
+	t_listps	*pivot;
 
-	i = 0;
-	while (stack)
+	if (!(bit == 1))
+		bit += bit;
+	while (cpy)
 	{
-		stack->index = i;
-		stack = stack->next;
-		i++;
+		if (!(bit & cpy->num))
+			pushh(stack_a, stack_b);
+		rotatee(stack_a);
+		cpy = cpy->next;
 	}
-}
-
-void	pusher(t_stack *stack_a, int *nums)
-{
-	t_listps	*tmp;
-	int			i;
-
-	i = 0;
-	list_nurs(stack_a);
-	while (nums[i])
-	{
-		tmp = ps_lstnew(nums[i]);
-		if (!tmp)
-			return ;
-		ps_lstadd_back(stack_a->data, tmp);
-		i++;
-	}
-	indexer(*stack_a->data);
+	while ((*stack_b->data))
+		pushh(stack_b, stack_a);
 }
