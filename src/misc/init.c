@@ -40,4 +40,5 @@ void	pusher(t_stack *stack_a, int *nums)
 		i++;
 	}
 	indexer(*stack_a->data);
+	stack_a->args_n = ps_lstsize(*stack_a->data);
 }

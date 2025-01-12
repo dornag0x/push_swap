@@ -91,20 +91,20 @@ t_listps *num_sort(t_listps *stack)
 	return (stack);
 }
 
-t_listps	**int_sort(t_listps *stack)
+t_listps	*int_sort(t_listps *stack)
 {
-	t_listps	**cpy;
+	t_listps	*cpy;
 	t_listps	*head;
 	t_listps	*print;
 	t_listps	*tmp;
 
 	cpy = ps_lstcpy(stack);
-	head = *cpy;
+	head = cpy;
 	tmp = malloc(sizeof(t_listps));
 	if (!tmp)
 		return (NULL);
-	*cpy = num_sort(*cpy);
-	*cpy = to_dec(*cpy);
-	*cpy = idx_sort(*cpy);
+	cpy = num_sort(cpy);
+	cpy = to_dec(cpy);
+	cpy = idx_sort(cpy);
 	return (cpy);
 }

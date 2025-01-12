@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+int	ps_lstsize(t_listps *lst)
 {
 	int	i;
 

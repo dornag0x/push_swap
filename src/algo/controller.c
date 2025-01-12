@@ -11,16 +11,14 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-int	valid_data(t_listps	*data)
+int	valid_data(t_listps *data)
 {
-	t_listps	*nxt;
-
-	nxt = data->next;
-	while (nxt)
+	if (!data)
+		return (1);
+	while (data->next)
 	{
-		if (nxt->num < data->num)
+		if (data->num > data->next->num)
 			return (0);
-		nxt = nxt->next;
 		data = data->next;
 	}
 	return (1);
@@ -28,7 +26,7 @@ int	valid_data(t_listps	*data)
 
 char	*controller(t_stack *stack_a, t_stack *stack_b)
 {
-	t_listps	**cpy;
+	t_listps	*cpy;
 	t_listps	*pivot;
 	t_listps	*index;
 	t_listps	*head;
@@ -45,9 +43,9 @@ char	*controller(t_stack *stack_a, t_stack *stack_b)
 	{
 		cpy = int_sort(*stack_a->data);
 		//while (!valid_data(*stack_a->data))
-		big_algo(stack_a, stack_b, *cpy);
-		//big_algo(stack_a, stack_b, *cpy);
+		big_algo(stack_a, stack_b, cpy);
 		cpy = int_sort(*stack_a->data);
+		big_algo(stack_a, stack_b, cpy);
 	}
 	//if (count_list(stack_a) == 4)
 	//	alg_4(stack_a);

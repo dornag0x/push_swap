@@ -18,7 +18,7 @@ void	revert(t_stack *stack_a, t_stack *stack_b)
 	pushh(stack_b, stack_a);
 }
 
-void	big_algo(t_stack *stack_a, t_stack *stack_b, t_listps *cpy)
+/*void	big_algo(t_stack *stack_a, t_stack *stack_b, t_listps *cpy)
 {
 	static int	bit = 1;
 	t_listps	*pivot;
@@ -34,4 +34,31 @@ void	big_algo(t_stack *stack_a, t_stack *stack_b, t_listps *cpy)
 	}
 	revert(stack_a, stack_b);
 	bit += bit;
+}*/
+
+void	big_algo(t_stack *stack_a, t_stack *stack_b, t_listps *cpy)
+{
+	int			bit;
+	int			i;
+	int			size;
+	t_listps	*pivot;
+
+	bit = 0;
+	size = stack_a->args_n;
+	while (!valid_data(*stack_a->data))
+	{
+		i = 0
+		pivot = cpy;
+		while (i < size)
+		{
+			if (!((pivot->num >> bit) & 1))
+				pushh(stack_a, stack_b);
+			else
+				rotatee(stack_a);
+			pivot = pivot->next;
+			i++;
+		}
+		revert(stack_a, stack_b);
+		bit++;
+	}
 }
