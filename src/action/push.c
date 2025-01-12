@@ -31,4 +31,6 @@ void	pushh(t_stack *stack_1, t_stack *stack_2)
 	}
 	else
 		ps_lstclear(stack_1->data, free);
+	stack_2->args_n++;
+	stack_1->args_n--;
 }

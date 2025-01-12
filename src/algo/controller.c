@@ -43,9 +43,7 @@ char	*controller(t_stack *stack_a, t_stack *stack_b)
 	{
 		cpy = int_sort(*stack_a->data);
 		//while (!valid_data(*stack_a->data))
-		big_algo(stack_a, stack_b, cpy);
-		cpy = int_sort(*stack_a->data);
-		big_algo(stack_a, stack_b, cpy);
+		big_algoA(stack_a, stack_b, cpy);
 	}
 	//if (count_list(stack_a) == 4)
 	//	alg_4(stack_a);
