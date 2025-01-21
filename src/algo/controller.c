@@ -24,16 +24,11 @@ int	valid_data(t_listps *data)
 	return (1);
 }
 
-char	*controller(t_stack *stack_a, t_stack *stack_b)
+void	controller(t_stack *stack_a, t_stack *stack_b)
 {
 	t_listps	*cpy;
 	t_listps	*pivot;
-	t_listps	*index;
-	t_listps	*head;
-	char		*instr;
-	int			i;
 
-	index = *stack_a->data;
 	stack_a->check = false;
 	if (count_list(stack_a) == 2)
 		alg_2(stack_a);

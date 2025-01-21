@@ -15,7 +15,6 @@ void	pushh(t_stack *stack_1, t_stack *stack_2)
 {
 	t_listps	*tmp;
 	t_listps	*head;
-	t_listps	*next;
 
 	tmp = *stack_1->data;
 	head = ps_lstnew(tmp->num, tmp->index);
@@ -23,7 +22,6 @@ void	pushh(t_stack *stack_1, t_stack *stack_2)
 		init_b(stack_2, tmp->num, tmp->index);
 	else
 		ps_lstadd_front(stack_2->data, head);
-	next = tmp->next;
 	if ((*stack_1->data)->next)
 	{
 		*stack_1->data = (*stack_1->data)->next;

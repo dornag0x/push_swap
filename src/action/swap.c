@@ -16,9 +16,7 @@ void	swapp(t_stack *stack)
 	t_listps	*head;
 	t_listps	*tmp;
 	t_listps	*pivot;
-	int			i;
 
-	i = 0;
 	head = *stack->data;
 	head = head->next;
 	tmp = head->next;

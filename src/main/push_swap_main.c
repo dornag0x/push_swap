@@ -15,8 +15,8 @@ int	main(int argc, char **argv)
 {
 	t_stack		*stack_a;
 	t_stack		*stack_b;
-	t_listps	*tmp;
-	t_listps	**oui;
+	//t_listps	*tmp;
+	//t_listps	**oui;
 	int			*n_argv;
 
 	if (argc <= 2)

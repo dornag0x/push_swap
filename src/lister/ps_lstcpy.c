@@ -16,7 +16,6 @@ t_listps	*ps_lstcpy(t_listps *stack)
 	t_listps	*cpy;
 	t_listps	*tmp;
 	t_listps	*head;
-	t_listps	*print;
 
 	cpy = NULL;
 	head = stack;

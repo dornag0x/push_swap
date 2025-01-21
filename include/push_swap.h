@@ -19,8 +19,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdbool.h>
-# include "../lib/ft_printf/ft_printf.h"
-# include "../lib/libft/libft.h"
+# include "../ft_printf/ft_printf.h"
+# include "../libft/libft.h"
 
 typedef struct s_listps
 {
@@ -47,7 +47,7 @@ int			main(int argc, char **argv);
 
 // Algorithm:
 int			valid_data(t_listps	*data);
-char		*controller(t_stack *stack_a, t_stack *stack_b);
+void		controller(t_stack *stack_a, t_stack *stack_b);
 void		big_algoA(t_stack *stack_a, t_stack *stack_b, t_listps *cpy);
 void		big_algoB(t_stack *stack_a, t_stack *stack_b, int bit, int max_bits);
 void		alg_2(t_stack *stack);

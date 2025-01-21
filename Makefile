@@ -13,9 +13,9 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 EXEC = push_swap
-LIB = lib/libft/libft.a
+LIB = 
 
-OBJDIR = obj
+OBJDIR = build
 
 SRC = $(wildcard ./src/main/*.c) \
 	  $(wildcard ./src/misc/*.c) \
@@ -58,7 +58,7 @@ $(OBJDIR)/%.o: %.c
 
 $(EXEC): $(OBJ)
 	@echo "$(GREEN)[Linking] Creating executable $(EXEC)...$(RESET)"
-	@$(CC) $(OBJ) $(LIB) -o $(EXEC)
+	@$(CC) $(OBJ) $(LIB) -Llibft -lft -Lprintf -lftprintf -o $(EXEC)
 	@echo "$(GREEN)[Executable generated] You can run it with './$(EXEC)'$(RESET)"
 
 test: CFLAGS =
@@ -67,11 +67,11 @@ test: clean header $(EXEC)
 
 clean:
 	@echo "$(RED)[Cleaning] Removing object files...$(RESET)"
-	@rm -f $(OBJ)
+	@rm -f -r $(OBJ)
 
 fclean: clean
 	@echo "$(RED)[Full cleanup] Removing executable...$(RESET)"
-	@rm -f $(EXEC)
+	@rm -f -r $(EXEC)
 
 re: fclean all
 	@echo "$(GREEN)[Rebuilding] Everything is recompiled!$(RESET)"
