@@ -19,7 +19,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdbool.h>
-# include "../ft_printf/ft_printf.h"
+# include "../printf/ft_printf.h"
 # include "../libft/libft.h"
 
 typedef struct s_listps
