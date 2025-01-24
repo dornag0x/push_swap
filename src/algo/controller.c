@@ -6,7 +6,7 @@
 /*   By: hfeufeu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 16:10:04 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/01/11 10:56:16 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/01/24 16:33:09 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
@@ -39,6 +39,7 @@ void	controller(t_stack *stack_a, t_stack *stack_b)
 		cpy = int_sort(*stack_a->data);
 		//while (!valid_data(*stack_a->data))
 		big_algoA(stack_a, stack_b, cpy);
+		print_testlst(&cpy);
 	}
 	//if (count_list(stack_a) == 4)
 	//	alg_4(stack_a);
