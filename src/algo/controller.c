@@ -13,9 +13,7 @@
 
 int	valid_data(t_listps *data)
 {
-	if (!data)
-		return (1);
-	while (data->next)
+	while (data && data->next)
 	{
 		if (data->num > data->next->num)
 			return (0);
@@ -38,7 +36,7 @@ void	controller(t_stack *stack_a, t_stack *stack_b)
 	{
 		cpy = int_sort(*stack_a->data);
 		//while (!valid_data(*stack_a->data))
-		big_algoA(stack_a, stack_b, cpy);
+		radix_sort(stack_a, stack_b, cpy);
 		print_testlst(&cpy);
 	}
 	//if (count_list(stack_a) == 4)
