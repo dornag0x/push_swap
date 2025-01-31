@@ -11,34 +11,56 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-void	indexer(t_listps *stack)
+void	indexer(t_listps *head)
 {
-	int	i;
+	t_listps	*current;
+	int			i;
 
+	current = head;
 	i = 0;
-	while (stack)
+	while (current)
 	{
-		stack->index = i;
-		stack = stack->next;
+		current->index = i;
+		current = current->next;
 		i++;
 	}
 }
 
+static void	init_stack(t_stack *stack)
+{
+	stack->head = NULL;
+	stack->tails = NULL;
+	stack->size = 0;
+	stack->check = false;
+}
+
 void	pusher(t_stack *stack_a, int *nums)
 {
-	t_listps	*tmp;
+	t_listps	*new_node;
 	int			i;
 
+	if (!stack_a || !nums)
+		return ;
+	init_stack(stack_a);
 	i = 0;
-	list_nurs(stack_a);
-	while (nums[i])
+	while (nums[i] != NULL)
 	{
-		tmp = ps_lstnew(nums[i], 0);
-		if (!tmp)
+		new_node = ps_lstnew(nums[i]);
+		if (!new_node)
 			return ;
-		ps_lstadd_back(stack_a->data, tmp);
+		if (stack_a->tails == NULL)
+		{
+			stack_a->head = new_node;
+			stack_a->tails = new_node;
+		}
+		else
+		{
+			new_node->prev = stack_a->tails;
+			stack_a->tails->next = new_node;
+			stack_a->tails = new_node;
+		}
+		stack_a->size++;
 		i++;
 	}
-	indexer(*stack_a->data);
-	stack_a->args_n = ps_lstsize(*stack_a->data);
+	indexer(stack_a->head);
 }

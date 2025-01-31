@@ -6,52 +6,44 @@
 /*   By: hfeufeu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 16:10:04 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/01/24 16:33:09 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/01/30 12:15:00 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-int	valid_data(t_listps *data)
+int valid_data(t_listps *data)
 {
-	while (data && data->next)
+	t_listps *current;
+
+	if (!data)
+		return (1);
+	current = data;
+	while (current->next)
 	{
-		if (data->num > data->next->num)
+		if (current->num > current->next->num)
 			return (0);
-		data = data->next;
+		current = current->next;
 	}
 	return (1);
 }
 
-void	controller(t_stack *stack_a, t_stack *stack_b)
+void controller(t_stack *stack_a, t_stack *stack_b)
 {
-	t_listps	*cpy;
-	t_listps	*pivot;
-
-	stack_a->check = false;
 	if (count_list(stack_a) == 2)
 		alg_2(stack_a);
-	if (count_list(stack_a) == 3)
+	else if (count_list(stack_a) == 3)
 		alg_3(stack_a);
 	else
-	{
-		cpy = int_sort(*stack_a->data);
-		//while (!valid_data(*stack_a->data))
-		radix_sort(stack_a, stack_b, cpy);
-		print_testlst(&cpy);
-	}
-	//if (count_list(stack_a) == 4)
-	//	alg_4(stack_a);
-	//pivot = ps_lstlast(*stack_a->data);
-	//iterlist(stack_a, stack_b);
-	//n_iterlist(stack_a, stack_b);
+		big_algoA(stack_a, stack_b);
 	if (stack_a->data)
 	{
 		printf("stack A: \n");
 		print_test(stack_a);
 	}
-	/*if (stack_b->data)
+	if (stack_b->data)
 	{
 		printf("stack B: \n");
 		print_test(stack_b);
-	}*/
+	}
 }
+

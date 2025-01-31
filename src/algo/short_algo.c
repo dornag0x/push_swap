@@ -36,11 +36,3 @@ void	alg_3(t_stack *stack)
 		swapp(stack);
 	}
 }
-
-/*
-void	alg_4(t_stack stack)
-{
-	t_listps	
-}
-
-void	alg_5();*/

@@ -22,17 +22,25 @@
 # include "../printf/ft_printf.h"
 # include "../libft/libft.h"
 
+enum s_err
+{
+	ERR_ALLOC,
+	NO_VALUE
+}	t_err;
+
 typedef struct s_listps
 {
 	int				num;
 	int				index;
 	struct s_listps	*next;
+	struct s_listps	*prev;
 }	t_listps;
 
 typedef struct s_stack
 {
-	t_listps	**data;
-	int			args_n;
+	t_listps	*head;
+	t_listps	*tails;
+	int			size;
 	bool		check;
 }	t_stack;
 
@@ -49,7 +57,7 @@ int			main(int argc, char **argv);
 int			valid_data(t_listps	*data);
 void		controller(t_stack *stack_a, t_stack *stack_b);
 void		radix_sort(t_stack *stack_a, t_stack *stack_b, t_listps *cpy);
-void		big_algoA(t_stack *stack_a, t_stack *stack_b, t_listps *cpy);
+void		big_algoA(t_stack *stack_a, t_stack *stack_b);
 void		big_algoB(t_stack *stack_a, t_stack *stack_b, int bit, int max_bits);
 void		alg_2(t_stack *stack);
 void		alg_3(t_stack *stack);
@@ -71,10 +79,10 @@ void		rev_rotatee(t_stack *stack);
 void		ps_lstclear_last(t_listps	*lst);
 void		ps_lstdelone(t_listps *lst, void (*del)(void*));
 void		ps_lstadd_front(t_listps **lst, t_listps *new);
-t_listps	*ps_lstnew(int num, int index);
+t_listps	*ps_lstnew(int num);
 void		ps_lstadd_back(t_listps **lst, t_listps *new);
 t_listps	*ps_lstlast(t_listps *lst);
-t_listps	*ps_lstcpy(t_listps *stack);
+t_listps	*ps_lstcpy(t_listps *original);
 void		ps_lstclear(t_listps **lst, void (*del)(void*));
 int			ps_lstsize(t_listps *lst);
 
