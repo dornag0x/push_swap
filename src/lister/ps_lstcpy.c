@@ -21,7 +21,7 @@ t_listps	*ps_lstcpy(t_listps *stack)
 	head = stack;
 	while (head)
 	{
-		tmp = ps_lstnew(head->num, head->index);
+		tmp = ps_lstnew(head->num);
 		ps_lstadd_back(&cpy, tmp);
 		head = head->next;
 	}

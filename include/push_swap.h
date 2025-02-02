@@ -22,7 +22,7 @@
 # include "../printf/ft_printf.h"
 # include "../libft/libft.h"
 
-enum s_err
+typedef enum ERR
 {
 	ERR_ALLOC,
 	NO_VALUE

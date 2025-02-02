@@ -22,7 +22,8 @@ int	main(int argc, char **argv)
 	stack_a = malloc(sizeof(t_stack));
 	stack_b = malloc(sizeof(t_stack));
 	if (!stack_b || !stack_a)
-		err_handle(ERR_ALLOC);
+		return (0);
+		//err_handle(ERR_ALLOC);
 	n_argv = super_atoi(argv);
 	pusher(stack_a, n_argv);
 	free(n_argv);

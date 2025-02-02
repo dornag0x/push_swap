@@ -43,7 +43,7 @@ void	pusher(t_stack *stack_a, int *nums)
 		return ;
 	init_stack(stack_a);
 	i = 0;
-	while (nums[i] != NULL)
+	while (nums[i])
 	{
 		new_node = ps_lstnew(nums[i]);
 		if (!new_node)

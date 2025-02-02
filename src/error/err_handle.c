@@ -11,11 +11,11 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-void	err_handle(t_err err)
+/*void	err_handle(t_err err)
 {
 	if (err == ERR_ALLOC)
 	{
 		ft_printf("Wrong allocation!");
 		exit(EXIT_FAILURE);
 	}
-}
+}*/

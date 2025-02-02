@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-void	alg_2(t_stack *stack)
+/*void	alg_2(t_stack *stack)
 {
-	if ((*stack->data)->num > (*stack->data)->next->num)
+	if (stack->head->num > stack->head->next->num)
 		swapp(stack);
 }
 
@@ -35,4 +35,4 @@ void	alg_3(t_stack *stack)
 		rev_rotatee(stack);
 		swapp(stack);
 	}
-}
+}*/

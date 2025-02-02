@@ -29,7 +29,7 @@ int valid_data(t_listps *data)
 
 void controller(t_stack *stack_a, t_stack *stack_b)
 {
-	if (count_list(stack_a) == 2)
+	/*if (count_list(stack_a) == 2)
 		alg_2(stack_a);
 	else if (count_list(stack_a) == 3)
 		alg_3(stack_a);
@@ -44,6 +44,9 @@ void controller(t_stack *stack_a, t_stack *stack_b)
 	{
 		printf("stack B: \n");
 		print_test(stack_b);
-	}
+	}*/
+	pushh()
+	print_test(stack_a);
+	//print_test(stack_b);
 }
 

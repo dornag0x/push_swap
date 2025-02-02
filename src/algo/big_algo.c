@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-static void revert_stack(t_stack *stack_a, t_stack *stack_b)
+/*static void revert_stack(t_stack *stack_a, t_stack *stack_b)
 {
 	while (stack_b->args_n > 0)
 		pushh(stack_b, stack_a);
@@ -24,7 +24,7 @@ void	big_algoA(t_stack *stack_a, t_stack *stack_b)
 	int max_bits;
 	t_listps *tmp;
 
-	size = stack_a->args_n;
+	size = stack_a->size;
 	max_bits = 0;
 	while (size > 1)
 	{
@@ -48,5 +48,4 @@ void	big_algoA(t_stack *stack_a, t_stack *stack_b)
 		revert_stack(stack_a, stack_b);
 		bit++;
 	}
-}
-
+}*/

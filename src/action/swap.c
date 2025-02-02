@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-void	swapp(t_stack *stack)
+/*void	swapp(t_stack *stack)
 {
 	t_listps	*head;
 	t_listps	*tmp;
@@ -24,4 +24,4 @@ void	swapp(t_stack *stack)
 	ps_lstadd_front(stack->data, pivot);
 	(*stack->data)->next->next = tmp;
 	free(head);
-}
+}*/

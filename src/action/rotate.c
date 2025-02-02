@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-void	rotatee(t_stack *stack)
+/*void	rotatee(t_stack *stack)
 {
 	t_listps	*tmp;
 	t_listps	*head;
@@ -21,4 +21,4 @@ void	rotatee(t_stack *stack)
 	*stack->data = (*stack->data)->next;
 	ps_lstadd_back(stack->data, tmp);
 	free(head);
-}
+}*/

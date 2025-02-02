@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-void	list_nurs(t_stack *stack)
+/*void	list_nurs(t_stack *stack)
 {
 	t_listps **tmp;
 
@@ -31,7 +31,7 @@ void	init_b(t_stack *stack_b, int value, int index)
 	def = ps_lstnew(value, index);
 	def->index = index;
 	ps_lstadd_back(stack_b->data, def);
-}
+}*/
 
 int tab_len(char **tab)
 {
@@ -72,13 +72,10 @@ int	*super_atoi(char **numbers)
 void	print_test(t_stack *stack)
 {
 	t_listps	*tmp;
-	t_listps	**oui;
 
 	if (!stack)
 		return ;
-	oui = stack->data;
-	tmp = *oui;
-	//printf("len: %d\n", count_list(stack));
+	tmp = stack->head;
 	printf("%d: %d\n", tmp->index, tmp->num);
 	while (tmp->next)
 	{
@@ -87,7 +84,7 @@ void	print_test(t_stack *stack)
 	}
 }
 
-void	print_testlst(t_listps **lst)
+/*void	print_testlst(t_listps **lst)
 {
 	t_listps	*print;
 
@@ -115,4 +112,4 @@ int count_list(t_stack *stack)
 		i++;
 	}
 	return (i);
-}
+}*/

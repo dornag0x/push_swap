@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-void	rev_rotatee(t_stack *stack)
+/*void	rev_rotatee(t_stack *stack)
 {
 	t_listps	*tmp;
 	t_listps	*last;
@@ -20,4 +20,4 @@ void	rev_rotatee(t_stack *stack)
 	tmp = ps_lstnew(last->num, last->index);
 	ps_lstadd_front(stack->data, tmp);
 	ps_lstclear_last(*stack->data);
-}
+}*/

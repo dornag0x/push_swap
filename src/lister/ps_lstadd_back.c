@@ -15,6 +15,7 @@ void	ps_lstadd_back(t_listps **lst, t_listps *new)
 {
 	t_listps	*last;
 
+	last = NULL;
 	if (lst == NULL || new == NULL)
 		return ;
 	last = ps_lstlast(*lst);
