@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_lstcpy.c                                        :+:      :+:    :+:   */
+/*   color.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfeufeu <feufeuhugo@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 23:20:22 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/01/08 01:13:07 by hfeufeu          ###   ########.fr       */
+/*   Created: 2025/02/03 15:32:52 by hfeufeu           #+#    #+#             */
+/*   Updated: 2025/02/03 15:35:15 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../include/push_swap.h"
+#ifndef COLOR_H
+# define COLOR_H
 
-t_listps	*ps_lstcpy(t_listps *stack)
-{
-	t_listps	*cpy;
-	t_listps	*tmp;
-	t_listps	*head;
+# define RED "\e[1;31m"
+# define GREEN "\e[1;32m"
+# define NC "\e[0m"
 
-	cpy = NULL;
-	head = stack;
-	while (head)
-	{
-		tmp = ps_lstnew(head->num);
-		tmp->index = head->index;
-		ps_lstadd_back(&cpy, tmp);
-		head = head->next;
-	}
-	return (cpy);
-}
+#endif

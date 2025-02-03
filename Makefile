@@ -9,7 +9,7 @@
 #    Updated: 2024/12/28 11:13:03 by hfeufeu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 EXEC = push_swap

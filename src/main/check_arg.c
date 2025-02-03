@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   err_handle.c                                       :+:      :+:    :+:   */
+/*   check_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfeufeu <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: hfeufeu <feufeuhugo@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/29 13:42:53 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/02/03 15:40:18 by hfeufeu          ###   ########.fr       */
+/*   Created: 2025/02/03 15:27:18 by hfeufeu           #+#    #+#             */
+/*   Updated: 2025/02/03 15:41:31 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
-#include "../../include/color.h"
 
-void	err_handle(t_err err)
+void	check_arg(int *arg)
 {
-	if (err == ERR_ALLOC)
+	int	i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (arg[i])
 	{
-		ft_printf( RED "[ERROR]" NC " Wrong allocation!\n");
-		exit(EXIT_FAILURE);
-	}
-	else if (err == ERR_VALUE)
-	{
-		ft_printf( RED "[ERROR]" NC " Same value as been found!\n");
-		exit(EXIT_FAILURE);
+		if (i + 1)
+			j = (i + 1);
+		while (arg[j])
+		{
+			if (arg[i] == arg[j])
+				err_handle(ERR_VALUE);
+			j++;
+		}
+		i++;
 	}
 }

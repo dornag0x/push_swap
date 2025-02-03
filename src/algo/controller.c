@@ -45,8 +45,9 @@ void controller(t_stack *stack_a, t_stack *stack_b)
 		printf("stack B: \n");
 		print_test(stack_b);
 	}*/
-	pushh()
+	swapp(stack_a, 1);
 	print_test(stack_a);
+	print_test(stack_b);
 	//print_test(stack_b);
 }
 

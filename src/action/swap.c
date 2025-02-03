@@ -11,17 +11,19 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-/*void	swapp(t_stack *stack)
+void	swapp(t_stack *stack, int s)
 {
 	t_listps	*head;
 	t_listps	*tmp;
-	t_listps	*pivot;
+	t_listps	*next;
 
-	head = *stack->data;
-	head = head->next;
-	tmp = head->next;
-	pivot = ps_lstnew(head->num, head->index);
-	ps_lstadd_front(stack->data, pivot);
-	(*stack->data)->next->next = tmp;
-	free(head);
-}*/
+	tmp = stack->head->next;
+	next = ps_lstcpy(stack->head->next);
+	stack->head->next = stack->head->next->next;
+	free(tmp);
+	ps_lstadd_front(&stack->head, next);
+	if (s == 1)
+		printf("sa\n");
+	else if (s == 2)
+		printf("sb\n");
+}

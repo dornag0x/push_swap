@@ -34,7 +34,7 @@ static void	init_stack(t_stack *stack)
 	stack->check = false;
 }
 
-void	pusher(t_stack *stack_a, int *nums)
+void	pusher(t_stack *stack_a, t_stack *stack_b, int *nums)
 {
 	t_listps	*new_node;
 	int			i;
@@ -42,6 +42,7 @@ void	pusher(t_stack *stack_a, int *nums)
 	if (!stack_a || !nums)
 		return ;
 	init_stack(stack_a);
+	init_stack(stack_b);
 	i = 0;
 	while (nums[i])
 	{

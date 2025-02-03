@@ -6,7 +6,7 @@
 /*   By: hfeufeu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 11:35:39 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/01/11 10:40:27 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/03 15:38:40 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -15,7 +15,6 @@
 // Lib to delete before last push!!!
 # include <stdio.h>
 //
-
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdbool.h>
@@ -25,7 +24,9 @@
 typedef enum ERR
 {
 	ERR_ALLOC,
-	NO_VALUE
+	ERR_VALUE,
+	ERR_INT,
+	ERR_SAME
 }	t_err;
 
 typedef struct s_listps
@@ -50,7 +51,7 @@ int			count_list(t_stack *stack);
 void		print_testlst(t_listps **lst);
 
 // Main:
-void		pusher(t_stack *stack_a, int *nums);
+void		pusher(t_stack *stack_a, t_stack *stack_b, int *nums);
 int			main(int argc, char **argv);
 
 // Algorithm:
@@ -70,8 +71,8 @@ void		indexer(t_listps *stack);
 t_listps	*int_sort(t_listps *stack);
 
 // Action:
-void		swapp(t_stack *stack);
-void		pushh(t_stack *stack_1, t_stack *stack_2);
+void		swapp(t_stack *stack, int s);
+void		pushh(t_stack *stack_1, t_stack *stack_2, int s);
 void		rotatee(t_stack *stack);
 void		rev_rotatee(t_stack *stack);
 
@@ -87,5 +88,6 @@ void		ps_lstclear(t_listps **lst, void (*del)(void*));
 int			ps_lstsize(t_listps *lst);
 
 // Errors handling:
-void		err_handle(int type);
+void		check_arg(int *arg);
+void		err_handle(t_err err);
 #endif
