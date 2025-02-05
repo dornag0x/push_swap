@@ -73,8 +73,8 @@ t_listps	*int_sort(t_listps *stack);
 // Action:
 void		swapp(t_stack *stack, int s);
 void		pushh(t_stack *stack_1, t_stack *stack_2, int s);
-void		rotatee(t_stack *stack);
-void		rev_rotatee(t_stack *stack);
+void		rotatee(t_stack *stack, int s);
+void		rev_rotatee(t_stack *stack, int s);
 
 // Lists:
 void		ps_lstclear_last(t_listps	*lst);

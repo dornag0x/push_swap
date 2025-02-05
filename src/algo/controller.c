@@ -29,11 +29,11 @@ int valid_data(t_listps *data)
 
 void controller(t_stack *stack_a, t_stack *stack_b)
 {
-	/*if (count_list(stack_a) == 2)
+	if (stack_a->size == 2)
 		alg_2(stack_a);
-	else if (count_list(stack_a) == 3)
+	else if (stack_a->size == 3)
 		alg_3(stack_a);
-	else
+	/*else
 		big_algoA(stack_a, stack_b);
 	if (stack_a->data)
 	{
@@ -45,9 +45,9 @@ void controller(t_stack *stack_a, t_stack *stack_b)
 		printf("stack B: \n");
 		print_test(stack_b);
 	}*/
-	swapp(stack_a, 1);
+	//rev_rotatee(stack_a, 1);
 	print_test(stack_a);
-	print_test(stack_b);
+	//print_test(stack_b);
 	//print_test(stack_b);
 }
 

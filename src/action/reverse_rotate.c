@@ -11,13 +11,21 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-/*void	rev_rotatee(t_stack *stack)
+void	rev_rotatee(t_stack *stack, int s)
 {
 	t_listps	*tmp;
 	t_listps	*last;
 
-	last = ps_lstlast(*stack->data);
-	tmp = ps_lstnew(last->num, last->index);
-	ps_lstadd_front(stack->data, tmp);
-	ps_lstclear_last(*stack->data);
-}*/
+	tmp = stack->head;
+	while (tmp->next && tmp->next != stack->tails)
+		tmp = tmp->next;
+	last = stack->tails;
+	tmp->next = NULL;
+	stack->tails = tmp;
+	last->next = stack->head;
+	stack->head = last;
+	if (s == 1)
+		ft_printf("rra\n");
+	if (s == 2)
+		ft_printf("rrb\n");
+}

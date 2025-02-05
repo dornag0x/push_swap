@@ -11,14 +11,18 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-/*void	rotatee(t_stack *stack)
+void	rotatee(t_stack *stack, int s)
 {
 	t_listps	*tmp;
 	t_listps	*head;
 
-	head = *stack->data;
-	tmp = ps_lstnew((*stack->data)->num, (*stack->data)->index);
-	*stack->data = (*stack->data)->next;
-	ps_lstadd_back(stack->data, tmp);
-	free(head);
-}*/
+	head = stack->head;
+	stack->head = stack->head->next;
+	ps_lstadd_back(&stack->head, head);
+	stack->tails = head;
+	stack->tails->next = NULL;
+	if (s == 1)
+		ft_printf("ra\n");
+	else if (s == 2)
+		ft_printf("rb\n");
+}
