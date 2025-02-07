@@ -9,7 +9,7 @@
 /*   Updated: 2024/12/29 16:11:13 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../include/push_swap.h"
+#include <push_swap.h>
 
 void	ps_lstdelone(t_listps *lst, void (*del)(void*))
 {

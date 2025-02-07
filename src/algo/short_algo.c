@@ -9,7 +9,7 @@
 /*   Updated: 2025/01/07 21:42:04 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../include/push_swap.h"
+#include <push_swap.h>
 
 static int	getMin(t_stack *stack)
 {

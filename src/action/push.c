@@ -9,7 +9,7 @@
 /*   Updated: 2025/01/11 10:36:01 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../include/push_swap.h"
+#include <push_swap.h>
 
 void	pushh(t_stack *stack_1, t_stack *stack_2, int s)
 {

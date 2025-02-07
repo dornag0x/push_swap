@@ -9,8 +9,8 @@
 /*   Updated: 2025/02/03 15:40:18 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../include/push_swap.h"
-#include "../../include/color.h"
+#include <push_swap.h>
+#include <color.h>
 
 void	err_handle(t_err err)
 {

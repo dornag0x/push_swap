@@ -9,7 +9,7 @@
 /*   Updated: 2024/12/30 22:23:57 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../include/push_swap.h"
+#include <push_swap.h>
 
 int tab_len(char **tab)
 {

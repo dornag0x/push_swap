@@ -9,7 +9,7 @@
 /*   Updated: 2024/12/29 16:11:52 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../include/push_swap.h"
+#include <push_swap.h>
 
 int	ps_lstsize(t_listps *lst)
 {

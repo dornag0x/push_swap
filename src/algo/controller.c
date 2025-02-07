@@ -9,7 +9,7 @@
 /*   Updated: 2025/01/30 12:15:00 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../include/push_swap.h"
+#include <push_swap.h>
 
 int valid_data(t_listps *data)
 {

@@ -17,18 +17,39 @@ LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 FT_PRINTF_DIR = ./printf
 FT_PRINTF = $(FT_PRINTF_DIR)/libftprintf.a
-OBJDIR = build
+OBJDIR = .build
+SRCDIR = src
 
-SRC = $(wildcard ./src/main/*.c) \
-      $(wildcard ./src/misc/*.c) \
-      $(wildcard ./src/error/*.c) \
-      $(wildcard ./src/print/*.c) \
-      $(wildcard ./src/action/*.c) \
-      $(wildcard ./src/lister/*.c) \
-      $(wildcard ./src/parsing/*.c) \
-      $(wildcard ./src/algo/*.c)
+SRC = main/push_swap_main.c \
+	  main/check_arg.c \
+	  action/push.c \
+	  action/reverse_rotate.c \
+	  action/rotate.c \
+	  action/swap.c \
+	  algo/big_algo.c \
+	  algo/controller.c \
+	  algo/short_algo.c \
+	  lister/ps_lstadd_back.c \
+	  lister/ps_lstadd_front.c \
+	  lister/ps_lstclear.c \
+	  lister/ps_lstclear_last.c \
+	  lister/ps_lstcpy.c \
+	  lister/ps_lstdelnext.c \
+	  lister/ps_lstdelone.c \
+	  lister/ps_lstiter.c \
+	  lister/ps_lstlast.c \
+	  lister/ps_lstnew.c \
+	  lister/ps_lstsize.c \
+	  misc/cpy_lst.c \
+	  misc/err_handle.c \
+	  misc/init.c \
+	  misc/push_swap_utils.c \
 
-OBJ := $(SRC:%.c=$(OBJDIR)/%.o)
+SRC := $(addprefix $(SRCDIR)/, $(SRC))
+
+OBJ := $(addprefix $(OBJDIR)/, $(SRC:%.c=%.o))
+
+IFLAGS = -I ./include
 
 LIB = -L$(LIBFT_DIR) -lft -L$(FT_PRINTF_DIR) -lftprintf
 
@@ -56,7 +77,7 @@ header:
 
 $(OBJDIR)/%.o: %.c
 	@mkdir -p '$(@D)'
-	@$(CC) $(CFLAGS) -g -c $< -o $@
+	@$(CC) $(CFLAGS) $(IFLAGS) -g -c $< -o $@
 
 $(LIBFT):
 	@$(MAKE) -s -C $(LIBFT_DIR)
@@ -75,13 +96,13 @@ test: clean header $(LIBFT) $(FT_PRINTF) $(EXEC)
 
 clean:
 	@echo "$(RED)[Cleaning] Removing object files...$(RESET)"
-	@rm -f -r $(OBJ)
+	@rm -f -r $(OBJ) $(OBJDIR)
 	@$(MAKE) -s -C $(LIBFT_DIR) clean
 	@$(MAKE) -s -C $(FT_PRINTF_DIR) clean
 
 fclean: clean
 	@echo "$(RED)[Full cleanup] Removing executable...$(RESET)"
-	@rm -f -r $(EXEC) $(OBJDIR)
+	@rm -f -r $(EXEC)
 	@$(MAKE) -s -C $(LIBFT_DIR) fclean
 	@$(MAKE) -s -C $(FT_PRINTF_DIR) fclean
 

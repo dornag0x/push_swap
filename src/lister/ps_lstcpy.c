@@ -9,7 +9,7 @@
 /*   Updated: 2025/01/08 01:13:07 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../include/push_swap.h"
+#include <push_swap.h>
 
 t_listps	*ps_lstcpy(t_listps *stack)
 {

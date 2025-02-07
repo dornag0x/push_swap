@@ -9,7 +9,7 @@
 /*   Updated: 2024/12/29 16:10:27 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../include/push_swap.h"
+#include <push_swap.h>
 
 void	rotatee(t_stack *stack, int s)
 {

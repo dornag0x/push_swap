@@ -9,7 +9,7 @@
 /*   Updated: 2025/01/24 16:33:08 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../include/push_swap.h"
+#include <push_swap.h>
 
 static int	find_max(t_listps *stack)
 {

@@ -9,7 +9,7 @@
 /*   Updated: 2025/01/11 10:35:36 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../include/push_swap.h"
+#include <push_swap.h>
 
 void	ps_lstclear(t_listps **lst, void (*del)(void*))
 {

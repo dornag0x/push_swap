@@ -9,7 +9,7 @@
 /*   Updated: 2025/02/03 15:41:31 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../include/push_swap.h"
+#include <push_swap.h>
 
 void	check_arg(int *arg)
 {
