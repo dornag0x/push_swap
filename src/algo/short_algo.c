@@ -17,7 +17,7 @@ void	alg_2(t_stack *stack)
 		swapp(stack, 1);
 }
 
-void	alg_3(t_stack *stack)
+/*void	alg_3(t_stack *stack)
 {
 	t_listps	*head;
 	t_listps	*tail;
@@ -35,4 +35,4 @@ void	alg_3(t_stack *stack)
 		rev_rotatee(stack);
 		swapp(stack);
 	}
-}
+}*/

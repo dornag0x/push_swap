@@ -57,7 +57,7 @@ int			main(int argc, char **argv);
 // Algorithm:
 int			valid_data(t_listps	*data);
 void		controller(t_stack *stack_a, t_stack *stack_b);
-void		radix_sort(t_stack *stack_a, t_stack *stack_b, t_listps *cpy);
+void		radix_sort(t_stack *stack_a, t_stack *stack_b);
 void		big_algoA(t_stack *stack_a, t_stack *stack_b);
 void		big_algoB(t_stack *stack_a, t_stack *stack_b, int bit, int max_bits);
 void		alg_2(t_stack *stack);

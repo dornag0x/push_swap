@@ -11,41 +11,56 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-/*static void revert_stack(t_stack *stack_a, t_stack *stack_b)
+static int	find_max(t_listps *stack)
 {
-	while (stack_b->args_n > 0)
-		pushh(stack_b, stack_a);
+	int i;
+	
+	i = 0;
+	while (stack)
+	{
+		if (stack->num > i)
+			i = stack->num;
+		stack = stack->next;
+	}
+	return (i);
 }
 
-void	big_algoA(t_stack *stack_a, t_stack *stack_b)
+static int get_max_bits(t_listps *stack)
 {
-	int bit;
-	int size;
-	int max_bits;
-	t_listps *tmp;
+	int max;
+	int bits;
 
-	size = stack_a->size;
-	max_bits = 0;
-	while (size > 1)
+	max = find_max(stack);
+	bits = 0;
+	while (max >> bits)
+		bits++;
+	return (bits);
+}
+
+void radix_sort(t_stack *stack_a, t_stack *stack_b)
+{
+	int max_bits;
+	int i;
+	int j;
+	int size;
+	t_listps *current;
+
+	i = 0;
+	max_bits = get_max_bits(stack_a->head);
+	while (i < max_bits)
 	{
-		size /= 2;
-		max_bits++;
-	}
-	bit = 0;
-	while (bit < max_bits)
-	{
-		cpy = int_sort(*stack_a->data);
-		tmp = cpy;
-		size = stack_a->args_n;
-		while (size-- > 0)
+		j = 0;
+		while (j < stack_a->size)
 		{
-			if (((tmp->num >> bit) & 1) == 1)
-				rotatee(stack_a);
+			current = stack_a->head;
+			if (((current->num >> i) & 1) == 1)
+				rotatee(stack_a, 1);
 			else
-				pushh(stack_a, stack_b);
-			tmp = tmp->next;
+				pushh(stack_a, stack_b, 2);
+			j++;
 		}
-		revert_stack(stack_a, stack_b);
-		bit++;
+		while (stack_b->head->next != NULL)
+			pushh(stack_b, stack_a, 1);
+		i++;
 	}
-}*/
+}
