@@ -20,12 +20,16 @@ int	main(int argc, char **argv)
 	if (argc <= 2)
 		return (0);
 	stack_a = malloc(sizeof(t_stack));
+	if (!stack_a)
+		err_handle(ERR_ALLOC);
 	stack_b = malloc(sizeof(t_stack));
-	if (!stack_b || !stack_a)
+	if (!stack_b)
 		err_handle(ERR_ALLOC);
 	n_argv = super_atoi(argv);
 	check_arg(n_argv);
 	pusher(stack_a, stack_b, n_argv);
 	free(n_argv);
 	controller(stack_a, stack_b);
+	free(stack_a);
+	free(stack_b);
 }

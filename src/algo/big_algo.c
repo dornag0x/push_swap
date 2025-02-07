@@ -42,7 +42,6 @@ void radix_sort(t_stack *stack_a, t_stack *stack_b)
 	int max_bits;
 	int i;
 	int j;
-	int size;
 	t_listps *current;
 
 	i = 0;
@@ -59,7 +58,7 @@ void radix_sort(t_stack *stack_a, t_stack *stack_b)
 				pushh(stack_a, stack_b, 2);
 			j++;
 		}
-		while (stack_b->head->next != NULL)
+		while (stack_b->head)
 			pushh(stack_b, stack_a, 1);
 		i++;
 	}

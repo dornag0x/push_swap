@@ -13,7 +13,6 @@
 
 void	rotatee(t_stack *stack, int s)
 {
-	t_listps	*tmp;
 	t_listps	*head;
 
 	head = stack->head;

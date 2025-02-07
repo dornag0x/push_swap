@@ -17,7 +17,7 @@ void	swapp(t_stack *stack, int s)
 	t_listps	*next;
 
 	if (!stack || !stack->head || !stack->head->next)
-		return;
+		err_handle(ERR_NULL);
 	tmp = stack->head;
 	next = stack->head->next;
 	tmp->next = next->next;

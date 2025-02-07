@@ -11,6 +11,13 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
+static void	init_stack(t_stack *stack)
+{
+	stack->head = NULL;
+	stack->tails = NULL;
+	stack->size = 0;
+}
+
 void	indexer(t_listps *head)
 {
 	t_listps	*current;
@@ -26,21 +33,13 @@ void	indexer(t_listps *head)
 	}
 }
 
-static void	init_stack(t_stack *stack)
-{
-	stack->head = NULL;
-	stack->tails = NULL;
-	stack->size = 0;
-	stack->check = false;
-}
-
 void	pusher(t_stack *stack_a, t_stack *stack_b, int *nums)
 {
 	t_listps	*new_node;
 	int			i;
 
 	if (!stack_a || !nums)
-		return ;
+		err_handle(ERR_NULL);
 	init_stack(stack_a);
 	init_stack(stack_b);
 	i = 0;
@@ -56,7 +55,6 @@ void	pusher(t_stack *stack_a, t_stack *stack_b, int *nums)
 		}
 		else
 		{
-			new_node->prev = stack_a->tails;
 			stack_a->tails->next = new_node;
 			stack_a->tails = new_node;
 		}

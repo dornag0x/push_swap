@@ -24,4 +24,14 @@ void	err_handle(t_err err)
 		ft_printf( RED "[ERROR]" NC " Same value as been found!\n");
 		exit(EXIT_FAILURE);
 	}
+	else if (err == ERR_NULL)
+	{
+		ft_printf( RED "[ERROR]" NC " Value not found!\n");
+		exit(EXIT_FAILURE);
+	}
+	else if (err == ERR_ARG)
+	{
+		ft_printf( RED "[ERROR]" NC " You should provide more than 2 arguments!\n");
+		exit(EXIT_FAILURE);
+	}
 }

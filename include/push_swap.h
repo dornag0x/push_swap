@@ -25,8 +25,8 @@ typedef enum ERR
 {
 	ERR_ALLOC,
 	ERR_VALUE,
-	ERR_INT,
-	ERR_SAME
+	ERR_NULL,
+	ERR_ARG
 }	t_err;
 
 typedef struct s_listps
@@ -34,7 +34,6 @@ typedef struct s_listps
 	int				num;
 	int				index;
 	struct s_listps	*next;
-	struct s_listps	*prev;
 }	t_listps;
 
 typedef struct s_stack
@@ -42,7 +41,6 @@ typedef struct s_stack
 	t_listps	*head;
 	t_listps	*tails;
 	int			size;
-	bool		check;
 }	t_stack;
 
 // To delete before push:
@@ -62,6 +60,8 @@ void		big_algoA(t_stack *stack_a, t_stack *stack_b);
 void		big_algoB(t_stack *stack_a, t_stack *stack_b, int bit, int max_bits);
 void		alg_2(t_stack *stack);
 void		alg_3(t_stack *stack);
+void		alg_4(t_stack *stack_a, t_stack *stack_b);
+void		alg_5(t_stack *stack_a, t_stack *stack_b);
 
 // Utils:
 void		init_b(t_stack *stack_b, int value, int index);

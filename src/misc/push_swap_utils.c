@@ -11,28 +11,6 @@
 /* ************************************************************************** */
 #include "../../include/push_swap.h"
 
-/*void	list_nurs(t_stack *stack)
-{
-	t_listps **tmp;
-
-	tmp = malloc(sizeof(t_listps*));
-	if (!tmp)
-		return ;
-	stack->data = tmp;
-}
-
-void	init_b(t_stack *stack_b, int value, int index)
-{
-	t_listps	*def;
-
-	list_nurs(stack_b);
-	if (!stack_b)
-		return ;
-	def = ps_lstnew(value, index);
-	def->index = index;
-	ps_lstadd_back(stack_b->data, def);
-}*/
-
 int tab_len(char **tab)
 {
 	int	i;
@@ -41,11 +19,8 @@ int tab_len(char **tab)
 	i = 1;
 	res = 0;
 	while (tab[i])
-	{
-		res += ft_strlen(tab[i]);
 		i++;
-	}
-	return (res);
+	return (i - 1);
 }
 
 int	*super_atoi(char **numbers)
@@ -56,60 +31,20 @@ int	*super_atoi(char **numbers)
 
 	i = 0;
 	j = 1;
-	res = malloc(sizeof(int) * tab_len(numbers));
+	res = malloc((sizeof(int*) * tab_len(numbers)));
 	if (!res)
-		return (0);
+		err_handle(ERR_ALLOC);
 	while (numbers[j])
 	{
 		res[i] = ft_atoi(numbers[j]);
 		i++;
 		j++;
 	}
+	// test:
+	i = 0;
+	while (res[i])
+		i++;
+	ft_printf("%d\n", i);
+	// end test
 	return (res);
 }
-
-// function to delete before push:
-void	print_test(t_stack *stack)
-{
-	t_listps	*tmp;
-
-	if (!stack)
-		return ;
-	tmp = stack->head;
-	printf("%d: %d\n", tmp->index, tmp->num);
-	while (tmp->next)
-	{
-		tmp = tmp->next;
-		printf("%d: %d\n", tmp->index, tmp->num);
-	}
-}
-
-/*void	print_testlst(t_listps **lst)
-{
-	t_listps	*print;
-
-	print = *lst;
-	while(print)
-	{
-		printf("%d: %d\n", print->index, print->num);
-		print = print->next;
-	}
-}
-
-int count_list(t_stack *stack)
-{
-	t_listps *tmp;
-	t_listps **cpy;
-	int i;
-
-	i = 0;
-	cpy = malloc(sizeof(t_listps*));
-	cpy = stack->data;
-	tmp = *cpy;
-	while (tmp)
-	{
-		tmp = tmp->next;
-		i++;
-	}
-	return (i);
-}*/

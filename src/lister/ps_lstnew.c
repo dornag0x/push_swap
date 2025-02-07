@@ -19,7 +19,6 @@ t_listps	*ps_lstnew(int num)
 	if (!node)
 		return (NULL);
 	node->num = num;
-	node->prev = NULL;
 	node->next = NULL;
 	return (node);
 }

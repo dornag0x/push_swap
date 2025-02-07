@@ -20,8 +20,7 @@ void	check_arg(int *arg)
 	j = 0;
 	while (arg[i])
 	{
-		if (i + 1)
-			j = (i + 1);
+		j = (i + 1);
 		while (arg[j])
 		{
 			if (arg[i] == arg[j])
