@@ -26,7 +26,8 @@ typedef enum ERR
 	ERR_ALLOC,
 	ERR_VALUE,
 	ERR_NULL,
-	ERR_ARG
+	ERR_ARG,
+	ERR_NOT_INT
 }	t_err;
 
 typedef struct s_listps
@@ -49,7 +50,8 @@ int			count_list(t_stack *stack);
 void		print_testlst(t_listps **lst);
 
 // Main:
-void		pusher(t_stack *stack_a, t_stack *stack_b, int *nums);
+void		pusher(t_stack *stack_a, t_stack *stack_b, char **nums);
+t_listps	*lister(char **argv);
 int			main(int argc, char **argv);
 
 // Algorithm:
@@ -67,7 +69,6 @@ void		alg_5(t_stack *stack_a, t_stack *stack_b);
 void		init_b(t_stack *stack_b, int value, int index);
 void		list_nurs(t_stack *stack);
 int			*super_atoi(char **numbers);
-void		indexer(t_listps *stack);
 t_listps	*int_sort(t_listps *stack);
 
 // Action:
@@ -88,6 +89,6 @@ void		ps_lstclear(t_listps **lst, void (*del)(void*));
 int			ps_lstsize(t_listps *lst);
 
 // Errors handling:
-void		check_arg(int *arg);
+void		check_arg(t_listps *arg);
 void		err_handle(t_err err);
 #endif

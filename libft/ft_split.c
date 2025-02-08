@@ -49,7 +49,7 @@ static size_t	verif(const char *s, char c)
 	size_t	result;
 
 	if (!ft_strchr(s, c))
-		result = ft_strlen(s);
+	result = ft_strlen(s);
 	else
 		result = ft_strchr(s, c) - s;
 	return (result);

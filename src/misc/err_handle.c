@@ -34,4 +34,9 @@ void	err_handle(t_err err)
 		ft_printf( RED "[ERROR]" NC " You should provide more than 2 arguments!\n");
 		exit(EXIT_FAILURE);
 	}
+	else if (err == ERR_NOT_INT)
+	{
+		ft_printf( RED "[ERROR]" NC " You should provide only int numbers!\n");
+		exit(EXIT_FAILURE);
+	}
 }

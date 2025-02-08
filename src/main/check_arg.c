@@ -11,22 +11,21 @@
 /* ************************************************************************** */
 #include <push_swap.h>
 
-void	check_arg(int *arg)
+void	check_arg(t_listps *arg)
 {
-	int	i;
-	int j;
+	t_listps	*tmp;
+	t_listps	*next;
 
-	i = 0;
-	j = 0;
-	while (arg[i])
+	tmp = arg;
+	while (tmp)
 	{
-		j = (i + 1);
-		while (arg[j])
+		next = tmp->next;
+		while (next)
 		{
-			if (arg[i] == arg[j])
+			if (next->num == tmp->num)
 				err_handle(ERR_VALUE);
-			j++;
+			next = next->next;
 		}
-		i++;
+		tmp = tmp->next;
 	}
 }

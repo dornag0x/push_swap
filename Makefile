@@ -51,7 +51,7 @@ OBJ := $(addprefix $(OBJDIR)/, $(SRC:%.c=%.o))
 
 IFLAGS = -I ./include
 
-LIB = -L$(LIBFT_DIR) -lft -L$(FT_PRINTF_DIR) -lftprintf
+LIB = -L$(LIBFT_DIR) -g -lft -L$(FT_PRINTF_DIR) -lftprintf
 
 RED = \033[31m
 GREEN = \033[32m

@@ -23,28 +23,62 @@ int tab_len(char **tab)
 	return (i - 1);
 }
 
-int	*super_atoi(char **numbers)
+static void	free_2darr(char **ptr)
 {
-	int	*res;
-	int	i;
-	int j;
+	char	**tmp;
+
+	if (!ptr)
+		return ;
+	tmp = ptr;
+	while (ptr && *ptr)
+		free(*ptr++);
+	free(tmp);
+}
+
+static int	check_int(char *src, int j)
+{
+	int i;
 
 	i = 0;
-	j = 1;
-	res = malloc((sizeof(int*) * tab_len(numbers)));
-	if (!res)
-		err_handle(ERR_ALLOC);
-	while (numbers[j])
+	if (!j && !src)
+		err_handle(ERR_ARG);
+	while (src[i])
 	{
-		res[i] = ft_atoi(numbers[j]);
+		if (!((src[i] >= '0' && src[i] <= '9') && src[i] != ' '))
+			return (1);
 		i++;
-		j++;
 	}
-	// test:
+	return (0);
+}
+
+t_listps	*lister(char **argv)
+{
+	int			i;
+	int			j;
+	int			tmp;
+	t_listps	*lst;
+	char		**fill;
+
 	i = 0;
-	while (res[i])
-		i++;
-	ft_printf("%d\n", i);
-	// end test
-	return (res);
+	lst = malloc(sizeof(t_listps));
+	if (!lst)
+		err_handle(ERR_ALLOC);
+	while (argv[++i])
+	{
+		fill = ft_split(argv[i], ' ');
+		j = 0;
+		while (fill && fill[j])
+		{
+			if (check_int(fill[j], j))
+			{
+				free_2darr(fill);
+				err_handle(ERR_NOT_INT);
+			}
+			tmp = ft_atoi(fill[j]);
+			ps_lstadd_back(&lst, ps_lstnew(tmp));
+			j++;
+		}
+		free_2darr(fill);
+	}
+	return (lst);
 }
