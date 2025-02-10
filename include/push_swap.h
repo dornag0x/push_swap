@@ -45,9 +45,7 @@ typedef struct s_stack
 }	t_stack;
 
 // To delete before push:
-void		print_test(t_stack *stack);
-int			count_list(t_stack *stack);
-void		print_testlst(t_listps **lst);
+void		printstack(t_listps *stack);
 
 // Main:
 void		pusher(t_stack *stack_a, t_stack *stack_b, char **nums);
@@ -70,6 +68,7 @@ void		init_b(t_stack *stack_b, int value, int index);
 void		list_nurs(t_stack *stack);
 int			*super_atoi(char **numbers);
 t_listps	*int_sort(t_listps *stack);
+void		free_stack(t_stack *stack);
 
 // Action:
 void		swapp(t_stack *stack, int s);

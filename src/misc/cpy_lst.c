@@ -94,12 +94,8 @@ t_listps *num_sort(t_listps *stack)
 t_listps	*int_sort(t_listps *stack)
 {
 	t_listps	*cpy;
-	t_listps	*tmp;
 
 	cpy = ps_lstcpy(stack);
-	tmp = malloc(sizeof(t_listps));
-	if (!tmp)
-		return (NULL);
 	cpy = num_sort(cpy);
 	cpy = to_dec(cpy);
 	cpy = idx_sort(cpy);

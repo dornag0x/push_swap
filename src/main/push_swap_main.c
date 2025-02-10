@@ -15,6 +15,7 @@ int	main(int argc, char **argv)
 {
 	t_stack		*stack_a;
 	t_stack		*stack_b;
+	t_listps	*tmp;
 
 	if (argc == 1)
 		return (0);
@@ -26,6 +27,12 @@ int	main(int argc, char **argv)
 		err_handle(ERR_ALLOC);
 	pusher(stack_a, stack_b, argv);
 	controller(stack_a, stack_b);
+	while(stack_a && stack_a->head)
+	{
+		tmp = stack_a->head->next;
+		free(stack_a->head);
+		stack_a->head = tmp;
+	}
 	free(stack_a);
 	free(stack_b);
 }

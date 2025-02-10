@@ -16,27 +16,27 @@ void	err_handle(t_err err)
 {
 	if (err == ERR_ALLOC)
 	{
-		ft_printf( RED "[ERROR]" NC " Wrong allocation!\n");
+		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
 	else if (err == ERR_VALUE)
 	{
-		ft_printf( RED "[ERROR]" NC " Same value as been found!\n");
+		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
 	else if (err == ERR_NULL)
 	{
-		ft_printf( RED "[ERROR]" NC " Value not found!\n");
+		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
 	else if (err == ERR_ARG)
 	{
-		ft_printf( RED "[ERROR]" NC " You should provide more than 2 arguments!\n");
+		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
 	else if (err == ERR_NOT_INT)
 	{
-		ft_printf( RED "[ERROR]" NC " You should provide only int numbers!\n");
+		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
 }

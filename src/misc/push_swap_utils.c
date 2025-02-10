@@ -23,6 +23,12 @@ int tab_len(char **tab)
 	return (i - 1);
 }
 
+void	free_stack(t_stack *stack)
+{
+	ps_lstclear(&stack->head, free);
+	free(stack);
+}
+
 static void	free_2darr(char **ptr)
 {
 	char	**tmp;
@@ -44,7 +50,7 @@ static int	check_int(char *src, int j)
 		err_handle(ERR_ARG);
 	while (src[i])
 	{
-		if (!((src[i] >= '0' && src[i] <= '9') && src[i] != ' '))
+		if (!((src[i] >= '0' && src[i] <= '9')))
 			return (1);
 		i++;
 	}
@@ -60,9 +66,7 @@ t_listps	*lister(char **argv)
 	char		**fill;
 
 	i = 0;
-	lst = malloc(sizeof(t_listps));
-	if (!lst)
-		err_handle(ERR_ALLOC);
+	lst = NULL;
 	while (argv[++i])
 	{
 		fill = ft_split(argv[i], ' ');
@@ -72,10 +76,15 @@ t_listps	*lister(char **argv)
 			if (check_int(fill[j], j))
 			{
 				free_2darr(fill);
-				err_handle(ERR_NOT_INT);
+				ps_lstclear(&lst, free);
+				write(2, "Error\n", 6);
+				return (NULL);
 			}
 			tmp = ft_atoi(fill[j]);
-			ps_lstadd_back(&lst, ps_lstnew(tmp));
+			if (!lst && tmp != 0)
+				lst = ps_lstnew(tmp);
+			else if (tmp != 0)
+				ps_lstadd_back(&lst, ps_lstnew(tmp));
 			j++;
 		}
 		free_2darr(fill);

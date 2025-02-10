@@ -37,17 +37,13 @@ static int	indexer(t_listps *head)
 void	pusher(t_stack *stack_a, t_stack *stack_b, char **nums)
 {
 	int			i;
-	t_listps	*tmp;
 
 	if (!stack_a || !nums)
 		err_handle(ERR_NULL);
-	init_stack(stack_b);
 	i = 0;
 	stack_a->head = lister(nums);
-	tmp = stack_a->head;
-	stack_a->head = stack_a->head->next;
-	free(tmp);
 	stack_a->tails = ps_lstlast(stack_a->head);
 	stack_a->size = indexer(stack_a->head);
 	check_arg(stack_a->head);
+	init_stack(stack_b);
 }

@@ -18,14 +18,15 @@ void	swapp(t_stack *stack, int s)
 
 	if (!stack || !stack->head || !stack->head->next)
 		err_handle(ERR_NULL);
-	tmp = stack->head;
-	next = stack->head->next;
-	tmp->next = next->next;
-	next->next = tmp;
+	tmp = stack->head->next;
+	stack->head->next = tmp->next;
+	next = ps_lstcpy(tmp);
+	next->next = stack->head;
 	stack->head = next;
+	free(tmp);
+	stack->tails = ps_lstlast(stack->head);
 	if (s == 1)
 		ft_printf("sa\n");
 	else if (s == 2)
 		ft_printf("sb\n");
 }
-
