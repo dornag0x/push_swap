@@ -6,7 +6,7 @@
 /*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 11:30:54 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/02/15 14:11:13 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/15 15:53:31 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,18 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (0);
 	stack_a = malloc(sizeof(t_stack));
-	if (!stack_a)
+		if (!stack_a)
 		err_handle(ERR_ALLOC);
 	stack_b = malloc(sizeof(t_stack));
 	if (!stack_b)
 		err_handle(ERR_ALLOC);
 	pusher(stack_a, stack_b, argv);
+	if (!(stack_a->head))
+	{
+		free(stack_a);
+		free(stack_b);
+		return (0);
+	}
 	controller(stack_a, stack_b);
 	while(stack_a && stack_a->head)
 	{

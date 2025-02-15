@@ -6,7 +6,7 @@
 /*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 09:50:27 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/02/15 14:06:54 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/15 14:48:44 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void radix_sort(t_stack *stack_a, t_stack *stack_b)
 	tmp = stack_a->head;
 	max_bits = get_max_bits(stack_a->head);
 	normalizer(tmp, stack_a->size);
-	//printnorma(stack_a->head);
 	stack_a->head = tmp;
 	while (i < max_bits)
 	{
@@ -58,7 +57,6 @@ void radix_sort(t_stack *stack_a, t_stack *stack_b)
 		while (j < stack_a->size)
 		{
 			current = stack_a->head;
-			//printf("norma: %d, num: %d\n", current->norma, current->num);
 			if (((current->norma >> i) & 1) == 1)
 				rotatee(stack_a, 1);
 			else
