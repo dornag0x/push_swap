@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfeufeu <feufeuhugo@gmail.com>             +#+  +:+       +#+        */
+/*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 20:21:23 by hfeufeu           #+#    #+#             */
-/*   Updated: 2024/12/30 22:23:57 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/15 12:25:41 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <push_swap.h>
 
 int tab_len(char **tab)
@@ -50,11 +51,29 @@ static int	check_int(char *src, int j)
 		err_handle(ERR_ARG);
 	while (src[i])
 	{
-		if (!((src[i] >= '0' && src[i] <= '9')))
+		if (!((src[i] >= '0' && src[i] <= '9') || (src[i] == '-')))
 			return (1);
 		i++;
 	}
 	return (0);
+}
+
+void	printstack(t_listps *stack)
+{
+	while (stack)
+	{
+		printf("%d\n", stack->num);
+		stack = stack->next;
+	}
+}
+
+void	printnorma(t_listps *stack)
+{
+	while (stack)
+	{
+		printf("%d\n", stack->norma);
+		stack = stack->next;
+	}
 }
 
 t_listps	*lister(char **argv)
@@ -82,9 +101,9 @@ t_listps	*lister(char **argv)
 			}
 			tmp = ft_atoi(fill[j]);
 			if (!lst && tmp != 0)
-				lst = ps_lstnew(tmp);
+				lst = ps_lstnew(tmp, 0);
 			else if (tmp != 0)
-				ps_lstadd_back(&lst, ps_lstnew(tmp));
+				ps_lstadd_back(&lst, ps_lstnew(tmp, 0));
 			j++;
 		}
 		free_2darr(fill);

@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfeufeu <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 11:35:39 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/02/03 15:38:40 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/15 12:23:48 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -34,6 +35,7 @@ typedef struct s_listps
 {
 	int				num;
 	int				index;
+	int				norma;
 	struct s_listps	*next;
 }	t_listps;
 
@@ -46,6 +48,7 @@ typedef struct s_stack
 
 // To delete before push:
 void		printstack(t_listps *stack);
+void		printnorma(t_listps *stack);
 
 // Main:
 void		pusher(t_stack *stack_a, t_stack *stack_b, char **nums);
@@ -56,8 +59,7 @@ int			main(int argc, char **argv);
 int			valid_data(t_listps	*data);
 void		controller(t_stack *stack_a, t_stack *stack_b);
 void		radix_sort(t_stack *stack_a, t_stack *stack_b);
-void		big_algoA(t_stack *stack_a, t_stack *stack_b);
-void		big_algoB(t_stack *stack_a, t_stack *stack_b, int bit, int max_bits);
+void		normalizer(t_listps *stack, int size);
 void		alg_2(t_stack *stack);
 void		alg_3(t_stack *stack);
 void		alg_4(t_stack *stack_a, t_stack *stack_b);
@@ -80,7 +82,7 @@ void		rev_rotatee(t_stack *stack, int s);
 void		ps_lstclear_last(t_listps	*lst);
 void		ps_lstdelone(t_listps *lst, void (*del)(void*));
 void		ps_lstadd_front(t_listps **lst, t_listps *new);
-t_listps	*ps_lstnew(int num);
+t_listps	*ps_lstnew(int num, int norma);
 void		ps_lstadd_back(t_listps **lst, t_listps *new);
 t_listps	*ps_lstlast(t_listps *lst);
 t_listps	*ps_lstcpy(t_listps *original);

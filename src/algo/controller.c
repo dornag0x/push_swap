@@ -29,7 +29,9 @@ int valid_data(t_listps *data)
 
 void controller(t_stack *stack_a, t_stack *stack_b)
 {
-	if (stack_a->size == 2)
+	if (stack_a->size == 1)
+		return ;
+	else if (stack_a->size == 2)
 		alg_2(stack_a);
 	else if (stack_a->size == 3)
 		alg_3(stack_a);

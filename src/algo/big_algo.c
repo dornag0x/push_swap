@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   big_algo.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfeufeu <feufeuhugo@gmail.com>             +#+  +:+       +#+        */
+/*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 09:50:27 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/01/24 16:33:08 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/15 14:06:54 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <push_swap.h>
 
 static int	find_max(t_listps *stack)
@@ -40,19 +41,25 @@ static int get_max_bits(t_listps *stack)
 void radix_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int max_bits;
+	t_listps	*tmp;
 	int i;
 	int j;
 	t_listps *current;
 
 	i = 0;
+	tmp = stack_a->head;
 	max_bits = get_max_bits(stack_a->head);
+	normalizer(tmp, stack_a->size);
+	//printnorma(stack_a->head);
+	stack_a->head = tmp;
 	while (i < max_bits)
 	{
 		j = 0;
 		while (j < stack_a->size)
 		{
 			current = stack_a->head;
-			if (((current->num >> i) & 1) == 1)
+			//printf("norma: %d, num: %d\n", current->norma, current->num);
+			if (((current->norma >> i) & 1) == 1)
 				rotatee(stack_a, 1);
 			else
 				pushh(stack_a, stack_b, 2);

@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_main.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfeufeu <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 11:30:54 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/02/03 15:41:30 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/15 14:11:13 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <push_swap.h>
 
 int	main(int argc, char **argv)

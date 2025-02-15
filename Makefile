@@ -3,12 +3,13 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hfeufeu <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/28 11:12:55 by hfeufeu           #+#    #+#              #
-#    Updated: 2024/12/28 11:13:03 by hfeufeu          ###   ########.fr        #
+#    Updated: 2025/02/15 11:29:43 by hfeufeu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
@@ -29,12 +30,12 @@ SRC = main/push_swap_main.c \
 	  algo/big_algo.c \
 	  algo/controller.c \
 	  algo/short_algo.c \
+	  algo/normalizer.c \
 	  lister/ps_lstadd_back.c \
 	  lister/ps_lstadd_front.c \
 	  lister/ps_lstclear.c \
 	  lister/ps_lstclear_last.c \
 	  lister/ps_lstcpy.c \
-	  lister/ps_lstdelnext.c \
 	  lister/ps_lstdelone.c \
 	  lister/ps_lstiter.c \
 	  lister/ps_lstlast.c \

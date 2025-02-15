@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfeufeu <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 16:10:33 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/01/03 18:15:07 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/15 14:11:05 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <push_swap.h>
 
 void	swapp(t_stack *stack, int s)
