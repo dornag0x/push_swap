@@ -41,7 +41,6 @@ SRC = main/push_swap_main.c \
 	  lister/ps_lstlast.c \
 	  lister/ps_lstnew.c \
 	  lister/ps_lstsize.c \
-	  misc/cpy_lst.c \
 	  misc/err_handle.c \
 	  misc/init.c \
 	  misc/push_swap_utils.c \
@@ -60,13 +59,7 @@ YELLOW = \033[33m
 RESET = \033[0m
 
 define HEADER
-$(GREEN)██████╗ ██╗   ██╗███████╗██╗  ██╗███████╗██╗    ██╗ █████╗ ██████╗ $(RESET) 
-$(GREEN)██╔══██╗██║   ██║██╔════╝██║  ██║██╔════╝██║    ██║██╔══██╗██╔══██╗$(RESET) 
-$(GREEN)██████╔╝██║   ██║███████╗███████║███████╗██║ █╗ ██║███████║██████╔╝$(RESET) 
-$(GREEN)██╔═══╝ ██║   ██║╚════██║██╔══██║╚════██║██║███╗██║██╔══██║██╔═══╝ $(RESET)
-$(GREEN)██║     ╚██████╔╝███████║██║  ██║███████║╚███╔███╔╝██║  ██║██║     $(RESET)
-$(GREEN)╚═╝      ╚═════╝ ╚══════╝╚═╝  ╚═╝╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝     $(RESET)
-$(RED)By Dornagol$(RESET)
+$(RED)By Dornag0x$(RESET)
 endef
 export HEADER
 

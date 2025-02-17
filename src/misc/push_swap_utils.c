@@ -15,10 +15,8 @@
 int tab_len(char **tab)
 {
 	int	i;
-	int res;
 
 	i = 1;
-	res = 0;
 	while (tab[i])
 		i++;
 	return (i - 1);
@@ -58,18 +56,11 @@ static int	check_int(char *src, int j)
 			return (1);
 		if (src[i] == '+' && (src[i - 1] >= '0' && src[i - 1] <= '9'))
 			return (1);
+		if ((ft_atoi(src) >= INT_MAX) || (ft_atoi(src) <= INT_MIN))
+			return (1);
 		i++;
 	}
 	return (0);
-}
-
-void	printnorma(t_listps *stack)
-{
-	while (stack)
-	{
-		printf("%d\n", stack->norma);
-		stack = stack->next;
-	}
 }
 
 t_listps	*lister(char **argv)

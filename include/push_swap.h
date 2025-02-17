@@ -22,6 +22,9 @@
 # include "../printf/ft_printf.h"
 # include "../libft/libft.h"
 
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
+
 typedef enum ERR
 {
 	ERR_ALLOC,
@@ -45,10 +48,6 @@ typedef struct s_stack
 	t_listps	*tails;
 	int			size;
 }	t_stack;
-
-// To delete before push:
-void		printstack(t_listps *stack);
-void		printnorma(t_listps *stack);
 
 // Main:
 void		pusher(t_stack *stack_a, t_stack *stack_b, char **nums);

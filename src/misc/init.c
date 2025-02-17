@@ -57,11 +57,8 @@ static int	indexer(t_listps *head)
 
 void	pusher(t_stack *stack_a, t_stack *stack_b, char **nums)
 {
-	int			i;
-
 	if (!stack_a || !nums)
 		err_handle(ERR_NULL);
-	i = 0;
 	stack_a->head = lister(nums);
 	if (!stack_a->head)
 		return ;
