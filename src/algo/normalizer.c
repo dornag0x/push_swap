@@ -6,7 +6,7 @@
 /*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 11:25:55 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/02/15 12:05:37 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/17 15:41:49 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	iterator(t_listps *cpy)
 	return (i);
 }
 
-static void	yepo(t_listps *stack, int *tmp, int size)
+static void	sorter(t_listps *stack, int *tmp, int size)
 {
 	int	i;
 	int	ind;
@@ -68,7 +68,7 @@ void	normalizer(t_listps *stack, int size)
 	tmp = malloc(sizeof(int) * size);
 	if (!tmp)
 		return ;
-	yepo(stack, tmp, size);
+	sorter(stack, tmp, size);
 	while (stack)
 	{
         i = 0;

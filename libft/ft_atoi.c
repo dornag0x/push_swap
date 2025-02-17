@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfeufeu <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 16:08:16 by hfeufeu           #+#    #+#             */
-/*   Updated: 2024/10/12 17:35:06 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/17 13:29:36 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ int	ft_atoi(const char *nptr)
 	}
 	while (*nptr >= '0' && *nptr <= '9')
 		n = (n * 10) + (*nptr++ - '0');
+	// if (n == 2147483648)
+	// 	err_handle(ERR_ARG);
 	return (n * sign);
 }

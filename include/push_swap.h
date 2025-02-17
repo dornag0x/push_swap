@@ -6,7 +6,7 @@
 /*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 11:35:39 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/02/15 12:23:48 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/17 21:17:30 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void		list_nurs(t_stack *stack);
 int			*super_atoi(char **numbers);
 t_listps	*int_sort(t_listps *stack);
 void		free_stack(t_stack *stack);
+int			check_if_valid(char *s);
 
 // Action:
 void		swapp(t_stack *stack, int s);

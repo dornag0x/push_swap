@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   controller.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfeufeu <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 16:10:04 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/01/30 12:15:00 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/17 16:04:17 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <push_swap.h>
 
 int valid_data(t_listps *data)
@@ -29,6 +30,11 @@ int valid_data(t_listps *data)
 
 void controller(t_stack *stack_a, t_stack *stack_b)
 {
+	t_listps	*tmp;
+
+	tmp = stack_a->head;
+	normalizer(tmp, stack_a->size);
+	stack_a->head = tmp;
 	if (stack_a->size == 1)
 		return ;
 	else if (stack_a->size == 2)

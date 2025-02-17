@@ -6,7 +6,7 @@
 /*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 09:50:27 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/02/15 14:48:44 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/17 16:04:37 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,12 @@ static int get_max_bits(t_listps *stack)
 void radix_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int max_bits;
-	t_listps	*tmp;
 	int i;
 	int j;
 	t_listps *current;
 
 	i = 0;
-	tmp = stack_a->head;
 	max_bits = get_max_bits(stack_a->head);
-	normalizer(tmp, stack_a->size);
-	stack_a->head = tmp;
 	while (i < max_bits)
 	{
 		j = 0;
