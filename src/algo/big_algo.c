@@ -6,11 +6,29 @@
 /*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 09:50:27 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/02/17 16:04:37 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/18 14:02:46 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
+
+static int	is_sorted(t_listps *stack)
+{
+	int			i;
+	t_listps	*head;
+	t_listps	*tmp;
+
+	i = 0;
+	head = stack;
+	tmp = head->next;
+	while (tmp->next)
+	{
+		if (tmp->next->num <= tmp->num)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
 
 static int	find_max(t_listps *stack)
 {
@@ -40,17 +58,19 @@ static int get_max_bits(t_listps *stack)
 
 void radix_sort(t_stack *stack_a, t_stack *stack_b)
 {
-	int max_bits;
-	int i;
-	int j;
-	t_listps *current;
+	int 		max_bits;
+	int 		i;
+	int 		j;
+	int			size;
+	t_listps	*current;
 
 	i = 0;
+	size = stack_a->size;
 	max_bits = get_max_bits(stack_a->head);
-	while (i < max_bits)
+	while (i < max_bits && !is_sorted(stack_a->head))
 	{
 		j = 0;
-		while (j < stack_a->size)
+		while (j < size)
 		{
 			current = stack_a->head;
 			if (((current->norma >> i) & 1) == 1)

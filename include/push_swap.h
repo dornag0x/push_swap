@@ -6,7 +6,7 @@
 /*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 11:35:39 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/02/17 21:17:30 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/18 14:10:38 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,10 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdbool.h>
+# include <limits.h>
 # include "../printf/ft_printf.h"
 # include "../libft/libft.h"
 
-# define INT_MAX 2147483647
-# define INT_MIN -2147483648
 
 typedef enum ERR
 {
@@ -71,6 +70,7 @@ int			*super_atoi(char **numbers);
 t_listps	*int_sort(t_listps *stack);
 void		free_stack(t_stack *stack);
 int			check_if_valid(char *s);
+long 		ft_atol(const char *str);
 
 // Action:
 void		swapp(t_stack *stack, int s);

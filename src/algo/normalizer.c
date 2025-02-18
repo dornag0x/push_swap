@@ -6,73 +6,71 @@
 /*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 11:25:55 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/02/17 15:41:49 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/18 17:24:42 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static int	ps_lstcmp(t_listps *stack, int n)
+static void	sort_lst(int *lst, int size)
 {
-	t_listps	*tmp;
+	int	i;
+	int	j;
+	int	res;
 
-	tmp = stack;
-	while (tmp)
+	i = 0;
+	res = 0;
+	while (i < size)
 	{
-		if (tmp->num == n)
-			return (tmp->num);
-		tmp = tmp->next;
+		j = i;
+		while (j < size)
+		{
+			if (lst[j] < lst[i])
+			{
+				res = lst[i];
+				lst[i] = lst[j];
+				lst[j] = res;
+			}
+			j++;
+		}
+		i++;
 	}
-	return (0);
-}
-
-static int	iterator(t_listps *cpy)
-{
-	int			i;
-
-	i = cpy->num;
-	while (cpy)
-	{
-		if (cpy->num < i)
-			i = cpy->num;
-		cpy = cpy->next;
-	}
-	return (i);
 }
 
 static void	sorter(t_listps *stack, int *tmp, int size)
 {
-	int	i;
-	int	ind;
+	long		i;
+	int			res;
+	t_listps	*head;
 
-	i = iterator(stack);
-	ind = 0;
-	while (ind < size)
+	i = 0;
+	res = stack->num;
+	head = stack;
+	while (i < size)
 	{
-		if (ps_lstcmp(stack, i))
-		{
-			tmp[ind] = ps_lstcmp(stack, i);
-			ind++;
-			i++;
-		}
-		else
-			i++;
+		tmp[i] = stack->num;
+		stack = stack->next;
+		i++;
 	}
+	sort_lst(tmp, size);
 }
 
 void	normalizer(t_listps *stack, int size)
 {
 	int			*tmp;
 	int			i;
+	t_listps	*head;
 
 	tmp = malloc(sizeof(int) * size);
 	if (!tmp)
 		return ;
 	sorter(stack, tmp, size);
+	i = 0;
+	head = stack;
 	while (stack)
 	{
         i = 0;
-        while (tmp[i])
+        while (i < size)
         {
             if (tmp[i] == stack->num)
                 stack->norma = i;
@@ -80,4 +78,6 @@ void	normalizer(t_listps *stack, int size)
         }
         stack = stack->next;
 	}
+	free(tmp);
+	stack = head;
 }

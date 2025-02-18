@@ -6,7 +6,7 @@
 /*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 20:21:23 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/02/17 21:23:21 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/18 16:14:00 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ static void	free_2darr(char **ptr)
 
 static int	check_int(char *src, int j)
 {
-	int i;
+	int 	i;
+	long 	num;
 
 	i = 0;
 	if ((!j && !src) || check_if_valid(src))
@@ -56,10 +57,12 @@ static int	check_int(char *src, int j)
 			return (1);
 		if (src[i] == '+' && (src[i - 1] >= '0' && src[i - 1] <= '9'))
 			return (1);
-		if ((ft_atoi(src) >= INT_MAX) || (ft_atoi(src) <= INT_MIN))
-			return (1);
+
 		i++;
 	}
+	num = ft_atol(src);
+	if (num > INT_MAX || num < INT_MIN)
+		return (1);
 	return (0);
 }
 
@@ -67,7 +70,7 @@ t_listps	*lister(char **argv)
 {
 	int			i;
 	int			j;
-	int			tmp;
+	long		tmp;
 	t_listps	*lst;
 	char		**fill;
 
@@ -91,7 +94,7 @@ t_listps	*lister(char **argv)
 				ps_lstclear(&lst, free);
 				return (NULL);
 			}
-			tmp = ft_atoi(fill[j]);
+			tmp = ft_atol(fill[j]);
 			if (!lst)
 				lst = ps_lstnew(tmp, 0);
 			else

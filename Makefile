@@ -6,7 +6,7 @@
 #    By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/28 11:12:55 by hfeufeu           #+#    #+#              #
-#    Updated: 2025/02/15 11:29:43 by hfeufeu          ###   ########.fr        #
+#    Updated: 2025/02/18 12:06:07 by hfeufeu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ SRC = main/push_swap_main.c \
 	  misc/err_handle.c \
 	  misc/init.c \
 	  misc/push_swap_utils.c \
+	  misc/ft_atol.c \
 
 SRC := $(addprefix $(SRCDIR)/, $(SRC))
 

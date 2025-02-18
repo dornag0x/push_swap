@@ -6,7 +6,7 @@
 /*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 16:10:04 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/02/17 16:04:17 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/18 16:50:19 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void controller(t_stack *stack_a, t_stack *stack_b)
 	else if (stack_a->size == 3)
 		alg_3(stack_a);
 	else if (stack_a->size == 4)
+
 		alg_4(stack_a, stack_b);
 	else if (stack_a->size == 5)
 		alg_5(stack_a, stack_b);
