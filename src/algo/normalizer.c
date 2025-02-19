@@ -19,10 +19,9 @@ static void	sort_lst(int *lst, int size)
 	int	res;
 
 	i = 0;
-	res = 0;
 	while (i < size)
 	{
-		j = i;
+		j = i + 1;
 		while (j < size)
 		{
 			if (lst[j] < lst[i])
@@ -39,13 +38,9 @@ static void	sort_lst(int *lst, int size)
 
 static void	sorter(t_listps *stack, int *tmp, int size)
 {
-	long		i;
-	int			res;
-	t_listps	*head;
+	long	i;
 
 	i = 0;
-	res = stack->num;
-	head = stack;
 	while (i < size)
 	{
 		tmp[i] = stack->num;
@@ -65,18 +60,20 @@ void	normalizer(t_listps *stack, int size)
 	if (!tmp)
 		return ;
 	sorter(stack, tmp, size);
-	i = 0;
 	head = stack;
 	while (stack)
 	{
-        i = 0;
-        while (i < size)
-        {
-            if (tmp[i] == stack->num)
-                stack->norma = i;
-            i++;
-        }
-        stack = stack->next;
+		i = 0;
+		while (i < size)
+		{
+			if (tmp[i] == stack->num)
+			{
+				stack->norma = i;
+				break ;
+			}
+			i++;
+		}
+		stack = stack->next;
 	}
 	free(tmp);
 	stack = head;

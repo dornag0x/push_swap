@@ -12,7 +12,7 @@
 
 #include <push_swap.h>
 
-int tab_len(char **tab)
+int	tab_len(char **tab)
 {
 	int	i;
 
@@ -42,22 +42,21 @@ static void	free_2darr(char **ptr)
 
 static int	check_int(char *src, int j)
 {
-	int 	i;
-	long 	num;
+	int		i;
+	long	num;
 
 	i = 0;
 	if ((!j && !src) || !src || check_if_valid(src))
 		return (1);
 	while (src[i])
 	{
-		if (!((src[i] >= '0' && src[i] <= '9') || (src[i] == '-') || 
+		if (!((src[i] >= '0' && src[i] <= '9') || (src[i] == '-') ||
 				(src[i] == '+' && (src[i + 1] >= '0' && src[i + 1] <= '9'))))
 			return (1);
 		if (src[i] == '-' && (src[i - 1] >= '0' && src[i - 1] <= '9'))
 			return (1);
 		if (src[i] == '+' && (src[i - 1] >= '0' && src[i - 1] <= '9'))
 			return (1);
-
 		i++;
 	}
 	num = ft_atol(src);
@@ -66,11 +65,33 @@ static int	check_int(char *src, int j)
 	return (0);
 }
 
+static t_listps	*process_numbers(char **fill, t_listps *lst)
+{
+	int		j;
+	long	tmp;
+
+	j = 0;
+	while (fill && fill[j])
+	{
+		if (check_int(fill[j], j) || !fill[0])
+		{
+			free_2darr(fill);
+			ps_lstclear(&lst, free);
+			return (NULL);
+		}
+		tmp = ft_atol(fill[j]);
+		if (!lst)
+			lst = ps_lstnew(tmp, 0);
+		else
+			ps_lstadd_back(&lst, ps_lstnew(tmp, 0));
+		j++;
+	}
+	return (lst);
+}
+
 t_listps	*lister(char **argv)
 {
 	int			i;
-	int			j;
-	long		tmp;
 	t_listps	*lst;
 	char		**fill;
 
@@ -85,22 +106,9 @@ t_listps	*lister(char **argv)
 			ps_lstclear(&lst, free);
 			return (NULL);
 		}
-		j = 0;
-		while (fill && fill[j])
-		{
-			if (check_int(fill[j], j) || !fill[0])
-			{
-				free_2darr(fill);
-				ps_lstclear(&lst, free);
-				return (NULL);
-			}
-			tmp = ft_atol(fill[j]);
-			if (!lst)
-				lst = ps_lstnew(tmp, 0);
-			else
-				ps_lstadd_back(&lst, ps_lstnew(tmp, 0));
-			j++;
-		}
+		lst = process_numbers(fill, lst);
+		if (!lst)
+			return (NULL);
 		free_2darr(fill);
 	}
 	return (lst);

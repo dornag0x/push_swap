@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
 #include <color.h>
+#include <push_swap.h>
 
 void	err_handle(t_err err)
 {

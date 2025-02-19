@@ -35,10 +35,8 @@ void	check_arg(t_stack *s_a, t_stack *s_b)
 {
 	t_listps	*tmp;
 	t_listps	*next;
-	t_listps	*head;
 
 	tmp = s_a->head;
-	head = s_a->head;
 	while (tmp)
 	{
 		next = tmp->next;

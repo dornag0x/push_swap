@@ -14,16 +14,14 @@
 
 static int	is_sorted(t_listps *stack)
 {
-	int			i;
 	t_listps	*head;
 	t_listps	*tmp;
 
-	i = 0;
 	head = stack;
 	tmp = head->next;
 	while (tmp->next)
 	{
-		if (tmp->next->num <= tmp->num)
+		if (tmp->norma > tmp->next->norma)
 			return (0);
 		tmp = tmp->next;
 	}
@@ -32,8 +30,8 @@ static int	is_sorted(t_listps *stack)
 
 static int	find_max(t_listps *stack)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	while (stack)
 	{
@@ -44,10 +42,10 @@ static int	find_max(t_listps *stack)
 	return (i);
 }
 
-static int get_max_bits(t_listps *stack)
+static int	get_max_bits(t_listps *stack)
 {
-	int max;
-	int bits;
+	int	max;
+	int	bits;
 
 	max = find_max(stack);
 	bits = 0;
@@ -56,37 +54,46 @@ static int get_max_bits(t_listps *stack)
 	return (bits);
 }
 
-void radix_sort(t_stack *stack_a, t_stack *stack_b)
+void	radix_sort_b(t_stack *stack_b, t_stack *stack_a, int i, int max_bits)
 {
-	int 		max_bits;
-	int 		i;
-	int 		j;
 	int			size;
 	t_listps	*current;
 
-	i = 0;
+	size = stack_b->size;
+	while (size-- && i <= max_bits && !is_sorted(stack_a->head))
+	{
+		current = stack_b->head;
+		if (((current->norma >> i) & 1) == 0)
+			rotatee(stack_b, 2);
+		else
+			pushh(stack_b, stack_a, 1);
+	}
+	if (is_sorted(stack_a->head))
+	{
+		while (stack_b->size)
+			pushh(stack_b, stack_a, 1);
+	}
+}
+
+void	radix_sort(t_stack *stack_a, t_stack *stack_b)
+{
+	int	max_bits;
+	int	i;
+	int	size;
+
 	size = stack_a->size;
 	max_bits = get_max_bits(stack_a->head);
-	while (i < max_bits && !is_sorted(stack_a->head))
+	i = -1;
+	while (++i <= max_bits && !is_sorted(stack_a->head))
 	{
-		j = 0;
-		while (j < size)
+		size = stack_a->size;
+		while (size--)
 		{
-			current = stack_a->head;
-			if (((current->norma >> i) & 1) == 1)
-				rotatee(stack_a, 1);
-			else
+			if (((stack_a->head->norma >> i) & 1) == 0)
 				pushh(stack_a, stack_b, 2);
-			j++;
-		}
-		while (stack_b->head)
-		{
-			current = stack_b->head;
-			if (((current->norma >> i) & 1) == 1)
-				rotatee(stack_b, 1);
 			else
-				pushh(stack_b, stack_a, 1);
+				rotatee(stack_a, 1);
 		}
-		i++;
+		radix_sort_b(stack_b, stack_a, i + 1, max_bits);
 	}
 }

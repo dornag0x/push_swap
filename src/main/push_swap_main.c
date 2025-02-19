@@ -12,20 +12,38 @@
 
 #include <push_swap.h>
 
-// void	printstack(t_listps *s)
-// {
-// 	while (s)
-// 	{
-// 		printf("%d\n", s->num);
-// 		s = s->next;
-// 	}
-// }
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_main.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/28 11:30:54 by hfeufeu           #+#    #+#             */
+/*   Updated: 2025/02/19 19:47:17 by hfeufeu          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <push_swap.h>
+
+static void	clean_stacks(t_stack *stack_a, t_stack *stack_b)
+{
+	t_listps	*tmp;
+
+	while (stack_a && stack_a->head)
+	{
+		tmp = stack_a->head->next;
+		free(stack_a->head);
+		stack_a->head = tmp;
+	}
+	free(stack_a);
+	free(stack_b);
+}
 
 int	main(int argc, char **argv)
 {
-	t_stack		*stack_a;
-	t_stack		*stack_b;
-	t_listps	*tmp;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
 	if (argc == 1)
 		err_handle(ERR_ARG);
@@ -37,18 +55,10 @@ int	main(int argc, char **argv)
 	if (!(stack_a->head))
 	{
 		write(2, "Error\n", 6);
-		free(stack_a);
-		free(stack_b);
+		clean_stacks(stack_a, stack_b);
 		return (0);
 	}
 	controller(stack_a, stack_b);
-	// printstack(stack_a->head);
-	while (stack_a && stack_a->head)
-	{
-		tmp = stack_a->head->next;
-		free(stack_a->head);
-		stack_a->head = tmp;
-	}
-	free(stack_a);
-	free(stack_b);
+	clean_stacks(stack_a, stack_b);
+	return (0);
 }

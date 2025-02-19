@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include <push_swap.h>
 
-void	ps_lstdelone(t_listps *lst, void (*del)(void*))
+void	ps_lstdelone(t_listps *lst, void (*del)(void *))
 {
 	if (!lst || !del)
 		return ;

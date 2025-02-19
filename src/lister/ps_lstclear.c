@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include <push_swap.h>
 
-void	ps_lstclear(t_listps **lst, void (*del)(void*))
+void	ps_lstclear(t_listps **lst, void (*del)(void *))
 {
 	t_listps	*sack;
 
