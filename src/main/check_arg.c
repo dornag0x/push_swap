@@ -3,27 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   check_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfeufeu <feufeuhugo@gmail.com>             +#+  +:+       +#+        */
+/*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:27:18 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/02/03 15:41:31 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/19 17:43:50 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <push_swap.h>
 
-void	check_arg(t_listps *arg)
+static void	free_and_exit(t_stack *s_a, t_stack *s_b)
+{
+	t_listps	*tmp;
+	t_listps	*head;
+
+	tmp = s_a->head;
+	head = s_a->head;
+	write(2, "Error\n", 6);
+	while (head)
+	{
+		tmp = head->next;
+		free(head);
+		head = tmp;
+	}
+	free(s_a);
+	free(s_b);
+	exit(EXIT_FAILURE);
+}
+
+void	check_arg(t_stack *s_a, t_stack *s_b)
 {
 	t_listps	*tmp;
 	t_listps	*next;
+	t_listps	*head;
 
-	tmp = arg;
+	tmp = s_a->head;
+	head = s_a->head;
 	while (tmp)
 	{
 		next = tmp->next;
 		while (next)
 		{
 			if (next->num == tmp->num)
-				err_handle(ERR_VALUE);
+				free_and_exit(s_a, s_b);
 			next = next->next;
 		}
 		tmp = tmp->next;

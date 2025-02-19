@@ -6,7 +6,7 @@
 /*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 20:21:23 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/02/18 16:14:00 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/19 13:03:24 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ static int	check_int(char *src, int j)
 	long 	num;
 
 	i = 0;
-	if ((!j && !src) || check_if_valid(src))
-		err_handle(ERR_ARG);
+	if ((!j && !src) || !src || check_if_valid(src))
+		return (1);
 	while (src[i])
 	{
 		if (!((src[i] >= '0' && src[i] <= '9') || (src[i] == '-') || 

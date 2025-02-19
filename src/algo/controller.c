@@ -6,7 +6,7 @@
 /*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 16:10:04 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/02/18 18:37:34 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/19 19:46:29 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,3 @@ void controller(t_stack *stack_a, t_stack *stack_b)
 	else
 		radix_sort(stack_a, stack_b);
 }
-

@@ -6,7 +6,7 @@
 /*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 16:10:33 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/02/15 14:11:05 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/19 16:45:52 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,16 @@
 
 void	swapp(t_stack *stack, int s)
 {
-	t_listps	*tmp;
-	t_listps	*next;
+	t_listps	*first;
+	t_listps	*second;
 
 	if (!stack || !stack->head || !stack->head->next)
 		err_handle(ERR_NULL);
-	tmp = stack->head->next;
-	stack->head->next = tmp->next;
-	next = ps_lstcpy(tmp);
-	next->next = stack->head;
-	stack->head = next;
-	free(tmp);
+	first = stack->head;
+	second = stack->head->next;
+	first->next = second->next;
+	second->next = first;
+	stack->head = second;
 	stack->tails = ps_lstlast(stack->head);
 	if (s == 1)
 		ft_printf("sa\n");

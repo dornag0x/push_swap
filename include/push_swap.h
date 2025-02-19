@@ -6,7 +6,7 @@
 /*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 11:35:39 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/02/18 14:10:38 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/19 19:41:20 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@
 typedef enum ERR
 {
 	ERR_ALLOC,
-	ERR_VALUE,
 	ERR_NULL,
 	ERR_ARG,
 	ERR_NOT_INT
@@ -90,6 +89,6 @@ void		ps_lstclear(t_listps **lst, void (*del)(void*));
 int			ps_lstsize(t_listps *lst);
 
 // Errors handling:
-void		check_arg(t_listps *arg);
+void		check_arg(t_stack *s_a, t_stack *s_b);
 void		err_handle(t_err err);
 #endif

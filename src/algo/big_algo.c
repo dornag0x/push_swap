@@ -6,7 +6,7 @@
 /*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 09:50:27 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/02/18 14:02:46 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/19 20:25:19 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,13 @@ void radix_sort(t_stack *stack_a, t_stack *stack_b)
 			j++;
 		}
 		while (stack_b->head)
-			pushh(stack_b, stack_a, 1);
+		{
+			current = stack_b->head;
+			if (((current->norma >> i) & 1) == 1)
+				rotatee(stack_b, 1);
+			else
+				pushh(stack_b, stack_a, 1);
+		}
 		i++;
 	}
 }
