@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ps_lstclear_last.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfeufeu <feufeuhugo@gmail.com>             +#+  +:+       +#+        */
+/*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 18:00:47 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/01/03 18:23:02 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/20 14:04:34 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <push_swap.h>
 
 void	ps_lstclear_last(t_listps *lst)

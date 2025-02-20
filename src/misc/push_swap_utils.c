@@ -6,7 +6,7 @@
 /*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 20:21:23 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/02/19 13:03:24 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/20 14:04:54 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	free_stack(t_stack *stack)
 	free(stack);
 }
 
-static void	free_2darr(char **ptr)
+void	free_2darr(char **ptr)
 {
 	char	**tmp;
 
@@ -50,8 +50,8 @@ static int	check_int(char *src, int j)
 		return (1);
 	while (src[i])
 	{
-		if (!((src[i] >= '0' && src[i] <= '9') || (src[i] == '-') ||
-				(src[i] == '+' && (src[i + 1] >= '0' && src[i + 1] <= '9'))))
+		if (!((src[i] >= '0' && src[i] <= '9') || (src[i] == '-')
+				|| (src[i] == '+' && (src[i + 1] >= '0' && src[i + 1] <= '9'))))
 			return (1);
 		if (src[i] == '-' && (src[i - 1] >= '0' && src[i - 1] <= '9'))
 			return (1);
@@ -65,7 +65,7 @@ static int	check_int(char *src, int j)
 	return (0);
 }
 
-static t_listps	*process_numbers(char **fill, t_listps *lst)
+t_listps	*process_numbers(char **fill, t_listps *lst)
 {
 	int		j;
 	long	tmp;
@@ -85,31 +85,6 @@ static t_listps	*process_numbers(char **fill, t_listps *lst)
 		else
 			ps_lstadd_back(&lst, ps_lstnew(tmp, 0));
 		j++;
-	}
-	return (lst);
-}
-
-t_listps	*lister(char **argv)
-{
-	int			i;
-	t_listps	*lst;
-	char		**fill;
-
-	i = 0;
-	lst = NULL;
-	while (argv[++i])
-	{
-		fill = ft_split(argv[i], ' ');
-		if (!fill || !fill[0])
-		{
-			free_2darr(fill);
-			ps_lstclear(&lst, free);
-			return (NULL);
-		}
-		lst = process_numbers(fill, lst);
-		if (!lst)
-			return (NULL);
-		free_2darr(fill);
 	}
 	return (lst);
 }

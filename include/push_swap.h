@@ -6,16 +6,13 @@
 /*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 11:35:39 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/02/19 19:41:20 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/20 14:05:30 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-// Lib to delete before last push!!!
-# include <stdio.h>
-//
 # include "../libft/libft.h"
 # include "../printf/ft_printf.h"
 # include <limits.h>
@@ -60,6 +57,7 @@ void				alg_2(t_stack *stack);
 void				alg_3(t_stack *stack);
 void				alg_4(t_stack *stack_a, t_stack *stack_b);
 void				alg_5(t_stack *stack_a, t_stack *stack_b);
+int					get_min(t_stack *stack);
 
 // Utils:
 void				init_b(t_stack *stack_b, int value, int index);
@@ -69,6 +67,8 @@ t_listps			*int_sort(t_listps *stack);
 void				free_stack(t_stack *stack);
 int					check_if_valid(char *s);
 long				ft_atol(const char *str);
+t_listps			*process_numbers(char **fill, t_listps *lst);
+void				free_2darr(char **ptr);
 
 // Action:
 void				swapp(t_stack *stack, int s);

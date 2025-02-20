@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   color.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfeufeu <feufeuhugo@gmail.com>             +#+  +:+       +#+        */
+/*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:32:52 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/02/03 15:35:15 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/20 14:05:52 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef COLOR_H
 # define COLOR_H
 

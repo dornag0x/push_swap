@@ -6,7 +6,7 @@
 /*   By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 22:55:43 by hfeufeu           #+#    #+#             */
-/*   Updated: 2025/02/19 17:13:44 by hfeufeu          ###   ########.fr       */
+/*   Updated: 2025/02/20 13:01:41 by hfeufeu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,29 @@ void	pusher(t_stack *stack_a, t_stack *stack_b, char **nums)
 	stack_a->tails = ps_lstlast(stack_a->head);
 	check_arg(stack_a, stack_b);
 	init_stack(stack_b);
+}
+
+t_listps	*lister(char **argv)
+{
+	int			i;
+	t_listps	*lst;
+	char		**fill;
+
+	i = 0;
+	lst = NULL;
+	while (argv[++i])
+	{
+		fill = ft_split(argv[i], ' ');
+		if (!fill || !fill[0])
+		{
+			free_2darr(fill);
+			ps_lstclear(&lst, free);
+			return (NULL);
+		}
+		lst = process_numbers(fill, lst);
+		if (!lst)
+			return (NULL);
+		free_2darr(fill);
+	}
+	return (lst);
 }

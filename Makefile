@@ -6,7 +6,7 @@
 #    By: hfeufeu <hfeufeu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/28 11:12:55 by hfeufeu           #+#    #+#              #
-#    Updated: 2025/02/18 12:06:07 by hfeufeu          ###   ########.fr        #
+#    Updated: 2025/02/20 13:05:05 by hfeufeu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRC = main/push_swap_main.c \
 	  algo/controller.c \
 	  algo/short_algo.c \
 	  algo/normalizer.c \
+	  algo/five_algo.c \
 	  lister/ps_lstadd_back.c \
 	  lister/ps_lstadd_front.c \
 	  lister/ps_lstclear.c \
